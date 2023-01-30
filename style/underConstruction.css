@@ -1,0 +1,110 @@
+#uc-section{
+    background-image: linear-gradient(#000a, #000a), url("/assets/images/heroSection/hero-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    /* min-height: 665px; */
+    height: 100vh;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.uc-section-top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 90px;
+    width: 100%;
+    height: 100%;
+}
+
+.uc-section-right-container{
+    padding-left: 112px;
+}
+
+.uc-section-title, .uc-section-title span{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 82.11px;
+}
+
+.uc-section-title span{
+    color: var(--color-prim);
+}
+
+.uc-section-subtitle{
+    margin-top: 42px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 34px;
+    width: 75%;
+}
+
+.uc-section-bottom-container{
+    padding: 0 54px;
+    padding-bottom: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.uc-section-bottom-container-copy-container p{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.uc-section-bottom-container-img-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 75px;
+}
+
+
+@media only screen and (max-width: 1000px){
+    #uc-section{
+        height: 100%;
+    }
+
+    .uc-section-left-container{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .uc-section-right-container{
+        padding-left: 0;
+        padding: 1rem;
+    }
+
+    .uc-section-title, .uc-section-title span{
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 50.11px;
+    }
+
+    .uc-section-top-container{
+        flex-wrap: wrap;
+    }
+
+    .uc-section-bottom-container{
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        row-gap: 2.5rem;
+        margin-top: 20rem;
+    }
+
+    .uc-section-bottom-container-copy-container p{
+        width: 100%;
+    }
+    .uc-section-bottom-container-img-container{
+        column-gap: 30px;
+    }
+}
