@@ -18,7 +18,7 @@ heroServicesContainer.forEach((container)=>{
 
 // -------------------------------------------------Video section play button ------------------------------------------------- 
 
-gsap.from('.play-outer-circle',1,{
+gsap.from('.play-outer-circle',2,{
     width : "220px",
     height : "220px",
     ease : 'ease.out',
