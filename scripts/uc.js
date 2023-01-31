@@ -12,3 +12,16 @@ gsap.fromTo('#uc-section-main-img',3,
         repeat : -1
     }
 )
+
+function navColor(){
+    var navbar = document.querySelector('.nevbar-container')
+    var windowY = window.scrollY
+    if(windowY >= 200){
+        navbar.classList.add('navbar-color')
+    }
+    else{
+        navbar.classList.remove('navbar-color')
+    }
+}
+
+window.addEventListener('scroll', navColor)
