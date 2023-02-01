@@ -119,4 +119,8 @@ font-family: 'Work Sans', sans-serif;
     .nevbar-container{
         padding: 20px 1rem;
     }
+
+    .nevbar-container img{
+        width: 113px;
+    }
 }

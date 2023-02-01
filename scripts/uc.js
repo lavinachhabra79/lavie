@@ -16,7 +16,7 @@ gsap.fromTo('#uc-section-main-img',3,
 function navColor(){
     var navbar = document.querySelector('.nevbar-container')
     var windowY = window.scrollY
-    if(windowY >= 200){
+    if(windowY >= 100){
         navbar.classList.add('navbar-color')
     }
     else{
