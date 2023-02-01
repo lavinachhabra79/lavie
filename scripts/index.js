@@ -1,5 +1,19 @@
 import  { heroMarquee } from "../data/heroMarquee.js"
 
+
+function navColor(){
+    var navbar = document.querySelector('.navbar-container')
+    var windowY = window.scrollY
+    if(windowY >= 250){
+        navbar.classList.add('navbar-color')
+    }
+    else{
+        navbar.classList.remove('navbar-color')
+    }
+}
+
+window.addEventListener('scroll', navColor)
+
 // -------------------------------------------------Hero section marquee ------------------------------------------------- 
 const heroServicesContainer = document.querySelectorAll('.hero-section-bottom-services-container')
 

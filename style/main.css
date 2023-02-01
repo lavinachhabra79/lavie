@@ -50,7 +50,7 @@ font-family: 'Work Sans', sans-serif;
 
 
 /*-------------------------------------------- Navbar --------------------------------------------*/
-.nevbar-container{
+.navbar-container{
     position: fixed;
     width: 100%;
     display: flex;
@@ -71,6 +71,10 @@ font-family: 'Work Sans', sans-serif;
     border-radius: 8px;
 }
 
+.navbar-color{
+    background: var(--color-black);
+    transition: all .25s ease-in-out;
+}
 
 /*-------------------------------------------- Hero-Section --------------------------------------------*/
 #hero-section{
