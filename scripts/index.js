@@ -1,6 +1,6 @@
 import  { heroMarquee } from "../data/heroMarquee.js"
 
-
+// -------------------------------------------------Navbar color change ------------------------------------------------- 
 function navColor(){
     var navbar = document.querySelector('.navbar-container')
     var windowY = window.scrollY
@@ -30,7 +30,7 @@ heroServicesContainer.forEach((container)=>{
 })
 
 
-// -------------------------------------------------Video section play button ------------------------------------------------- 
+// -------------------------------------------------Video section play button animation------------------------------------------------- 
 
 gsap.from('.play-outer-circle',2,{
     width : "220px",

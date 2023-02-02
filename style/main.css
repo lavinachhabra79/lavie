@@ -37,7 +37,7 @@ font-family: 'Work Sans', sans-serif;
 .list-typo{
     font-weight: 600;
     font-size: 24px;
-    line-height: 32.2px;
+    line-height: 31.2px;
 }
 
 .para-typo{
@@ -203,6 +203,7 @@ font-family: 'Work Sans', sans-serif;
     height: 594px;
     background-image: linear-gradient(#000a, #000a), url("../assets/images/heroSection/video-bg.png");
     border-radius: 20px;
+    box-shadow: 0px 10px 200px 10px #888888;
 }
 
 
@@ -217,10 +218,10 @@ font-family: 'Work Sans', sans-serif;
     background: #ECDE6233;
 }
 .play-inner-circle{
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -230,3 +231,98 @@ font-family: 'Work Sans', sans-serif;
     background: var(--color-prim);
     color: var(--color-black-80);
 }
+
+
+/*-------------------------------------------- service-Section --------------------------------------------*/
+
+#service-section{
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.service-section-content-container{
+    width: 100%;
+    max-width: 1500px;
+    padding: 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 140px;
+}
+
+.service-single-type-sticky-container{
+    position: relative;
+    height: 1050px;
+}
+
+.service-single-type-container{
+    width: 100%;
+    position: sticky;
+    top: 8rem;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    column-gap: 500px;
+}
+
+.service-single-type-bg-number{
+    position: absolute;
+    left: 250px;
+    z-index: -10;
+}
+
+.service-single-type-bg-number h1{
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 680px;
+    font-weight: 700;
+    color: #eeeeee;
+    text-shadow: 4px 4px 14px #00000022;
+}
+
+.service-single-type-content-container{
+    padding-right: 150px;
+}
+
+.service-single-type-title-container{
+    position: relative;
+}
+
+#title-marker-design{
+    position: absolute;
+    top: -15%;
+    left: -20%;
+}
+
+.service-single-type-subservice-container{
+    margin-top: 38px;
+    list-style: none;
+}
+.service-single-type-subservice-container li{
+    color: var(--color-black-60);
+    margin-bottom: 24px;
+}
+
+#title-marker-technology{
+    position: absolute;
+    top: -35%;
+    left: -10%;
+}
+
+#title-marker-business{
+    position: absolute;
+    top: -25%;
+    left: -15%;
+}
+
+.title-marker-design-path{
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 10s ease-out infinite forwards;
+}
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
