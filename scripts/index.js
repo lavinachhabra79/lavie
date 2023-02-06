@@ -1,5 +1,10 @@
 import  { heroMarquee } from "../data/heroMarquee.js"
 import { experties } from "../data/domainExperties.js"
+import { heroTypewriter } from "../data/heroTypewriter.js"
+import { reviews } from "../data/reviews.js"
+
+// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Draggable);
 
 // -------------------------------------------------Navbar color change ------------------------------------------------- 
 function navColor(){
@@ -15,6 +20,87 @@ function navColor(){
 
 window.addEventListener('scroll', navColor)
 
+// -------------------------------------------------Hero section typewriter ------------------------------------------------- 
+
+// values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
+{
+var i = 0,
+    a = 0,
+    isBackspacing = false,
+    isParagraph = false;
+
+// Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
+var textArray = heroTypewriter;
+
+// Speed (in milliseconds) of typing.
+var speedForward = 200, //Typing Speed
+    speedWait = 1500, // Wait between typing and backspacing
+    speedBetweenLines = 1000, //Wait between first and second lines
+    speedBackspace = 100; //Backspace Speed
+
+//Run the loop
+typeWriter("output", textArray);
+
+function typeWriter(id, ar) {
+  var element = $("#" + id),
+      aString = ar[a],
+      eHeader = element.children("h1") //Header element
+  
+  // Determine if animation should be typing or backspacing
+  if (!isBackspacing) {
+    
+    // If full string hasn't yet been typed out, continue typing
+    if (i < aString.length) {
+      
+      // If character about to be typed is a pipe, switch to second line and continue.
+      if (aString.charAt(i) == "|") {
+        isParagraph = true;
+        eHeader.removeClass("cursor");
+        i++;
+        setTimeout(function(){ typeWriter(id, ar); }, speedBetweenLines);
+        
+      // If character isn't a pipe, continue typing.
+      } else {
+        // Type header or subheader depending on whether pipe has been detected
+        if (!isParagraph) {
+          eHeader.text(eHeader.text() + aString.charAt(i));
+        }
+        i++;
+        setTimeout(function(){ typeWriter(id, ar); }, speedForward);
+      }
+      
+    // If full string has been typed, switch to backspace mode.
+    } else if (i == aString.length) {
+      
+      isBackspacing = true;
+      setTimeout(function(){ typeWriter(id, ar); }, speedWait);
+      
+    }
+    
+  // If backspacing is enabled
+  } else {
+    
+    // If either the header or the paragraph still has text, continue backspacing
+    if (eHeader.text().length > 0 ) {
+      
+      // If paragraph still has text, continue erasing, otherwise switch to the header.
+        eHeader.addClass("cursor");
+        eHeader.text(eHeader.text().substring(0, eHeader.text().length - 1));
+      setTimeout(function(){ typeWriter(id, ar); }, speedBackspace);
+    
+    // If neither head or paragraph still has text, switch to next quote in array and start typing.
+    } else { 
+      
+      isBackspacing = false;
+      i = 0;
+      isParagraph = false;
+      a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
+      setTimeout(function(){ typeWriter(id, ar); }, 50);
+      
+    }
+  }
+}
+}
 // -------------------------------------------------Hero section marquee ------------------------------------------------- 
 const heroServicesContainer = document.querySelectorAll('.hero-section-bottom-services-container')
 
@@ -29,7 +115,25 @@ heroServicesContainer.forEach((container)=>{
 })
 
 
-// -------------------------------------------------Video section play button animation------------------------------------------------- 
+// -------------------------------------------------Achievement section counter animation------------------------------------------------- 
+
+gsap.utils.toArray('.counter-value').forEach(function (el) {
+    var initVal = Number(el.innerText.replace('+',''))
+    var target = { val: initVal };
+    gsap.to(target, {
+        val: el.getAttribute('endVal'),
+        duration: 1,
+        scrollTrigger: {
+            trigger: '.achivement-container',
+            start: 'top center',
+        },
+        onUpdate: function () {
+            el.innerText = target.val.toFixed(0) + '+';
+        },
+    });
+});
+
+// -------------------------------------------------Achievement section play button animation------------------------------------------------- 
 
 gsap.from('.play-outer-circle',2,{
     width : "220px",
@@ -39,6 +143,124 @@ gsap.from('.play-outer-circle',2,{
     repeat : -1
 })
 
+
+// -------------------------------------------------Service section bg image ------------------------------------------------- 
+
+gsap.to('#service-section-static-img-1',.5,{
+    opacity : 1,
+    scale : 1,
+    scrollTrigger : {
+        trigger : '.first-sticky-container',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: "play reverse play reverse",
+    }
+})
+
+
+gsap.to('#service-section-static-img-2',.5,{
+    y: '-50px',
+    opacity : 1,
+    scale : 1,
+    scrollTrigger : {
+        trigger : '.sticky-container-2',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: "play reverse play reverse",
+    }
+})
+
+
+gsap.to('#service-section-static-img-3',.5,{
+    opacity : 1,
+    scale : 1,
+    scrollTrigger : {
+        trigger : '.last-sticky-container',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: "play reverse play reverse",
+    }
+})
+
+// -------------------------------------------------Service section title markers ------------------------------------------------- 
+
+gsap.to('.title-marker-design-path',5.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '.first-sticky-container',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+      }
+})
+
+gsap.to('.title-marker-technology-path',7.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '.sticky-container-2',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+      }
+})
+
+gsap.to('.title-marker-business-path',3.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '.last-sticky-container',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+      }
+})
+
+
+// -------------------------------------------------Service section service list ------------------------------------------------- 
+
+const list1 = gsap.utils.selector('.service-list-1')
+
+gsap.to(list1('.service-single-type-subservice'),0.5,{
+    x: '100px',
+    opacity : 1,
+    stagger:0.1,
+    scrollTrigger: {
+        trigger : '.service-list-1',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none play reverse",
+      }
+})
+
+const list2 = gsap.utils.selector('.service-list-2')
+
+gsap.to(list2('.service-single-type-subservice'),0.5,{
+    x: '100px',
+    opacity : 1,
+    stagger:0.1,
+    scrollTrigger: {
+        trigger : '.service-list-2',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none play reverse",
+      }
+})
+
+const list3 = gsap.utils.selector('.service-list-3')
+
+gsap.to(list3('.service-single-type-subservice'),0.5,{
+    x: '100px',
+    opacity : 1,
+    stagger:0.1,
+    scrollTrigger: {
+        trigger : '.service-list-3',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none play reverse",
+      }
+})
 
 // -------------------------------------------------matter js experties------------------------------------------------- 
 
@@ -94,7 +316,7 @@ function matterJS() {
     let spawnAxix = 1
     const expertiesColor = ['#2474BD','#9840DD','#31AA86','#D2955C','#E97878']
     experties.forEach((experty,index)=>{
-        const random = Math.floor(Math.random() * expertiesColor.length);
+        // const random = Math.floor(Math.random() * expertiesColor.length);
         
         function createImage(text, len) {
 
@@ -106,7 +328,7 @@ function matterJS() {
             drawing.height = height
             let ctx = drawing.getContext("2d");
         
-            ctx.fillStyle = expertiesColor[random];
+            ctx.fillStyle = experty.color;
             ctx.beginPath();
             ctx.arc(height/2, height/2, height/2, Math.PI/2,3*Math.PI/2);
             ctx.fill();
@@ -130,24 +352,23 @@ function matterJS() {
         }
         let spawnX;
         if ( spawnAxix === 1 ){
-            spawnX = 100 + (experty.length * 30)
+            spawnX = 100 + (experty.name.length * 30)
             spawnAxix = 2
         }
         else if (spawnAxix === 2){
-            spawnX = _width - (experty.length * 10)
+            spawnX = _width - (experty.name.length * 10)
             spawnAxix = 3
         }
         else if (spawnAxix === 3){
             spawnX = _width05
             spawnAxix = 1
         }
-        console.log(spawnX)
-        const newExp = Bodies.rectangle(spawnX, 100, (experty.length * 25) + 30 ,110, { 
+        const newExp = Bodies.rectangle(spawnX, 100, (experty.name.length * 25) + 30 ,110, { 
             chamfer: { radius: 50 },
             render:{
-                fillStyle : expertiesColor[random],
+                fillStyle : experty.color,
                 sprite: {
-                    texture: createImage(experty, experty.length),
+                    texture: createImage(experty.name, experty.name.length),
                     xScale: 1.1,
                     yScale: 1.1
                 }
@@ -202,19 +423,190 @@ function matterJS() {
         max: { x: _width, y: _height }
     });
 
-    // context for MatterTools.Demo
-/*
-    return {
-        engine: engine,
-        runner: runner,
-        render: render,
-        canvas: render.canvas,
-        stop: function() {
-            Matter.Render.stop(render);
-            Matter.Runner.stop(runner);
-        }
-    };
-		*/
 };
 
 matterJS();
+
+
+// -------------------------------------------------unboxing section service list ------------------------------------------------- 
+
+const unboxingLoadingContainer = gsap.utils.selector('.unboxing-section-loading-blob-container')
+
+gsap.fromTo(unboxingLoadingContainer('div'),
+    {
+        duration : 1,
+        ease : 'steps(1)',
+        opacity : 0,
+        repeat : -1,
+        stagger : 0.33
+    },
+    {
+        duration : 1,
+        ease : 'steps(1)',
+        opacity : 1,
+        repeat : -1,
+        stagger : 0.33
+    },
+)
+
+// -------------------------------------------------Reviews section happy marker ------------------------------------------------- 
+
+gsap.to('.title-marker-happy-path',5.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '.review-section-content-container',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+        markers : true
+      }
+})
+
+// -------------------------------------------------Reviews section review slide inject ------------------------------------------------- 
+
+const reviewSlideContainer = document.querySelector('.review-section-slides-inner')
+
+console.log(reviewSlideContainer)
+
+let reviewSlides = ''
+
+reviews.forEach((review)=>{
+    console.log(review)
+    reviewSlides += `
+    <div class="review-section-slide">
+        <div class="review-section-slide-content-container">
+            <p class="para-typo slide-para">
+                ${review.clientReview}
+            </p>
+            <div>
+                <h3 class="para-typo slide-client">${review.clientName}</h3>
+                <h4 class="slide-client-designation">${review.clientDesignation}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="review-section-slides-spacer"></div>
+    `
+})
+
+console.log(reviewSlides)
+
+reviewSlideContainer.innerHTML = reviewSlides
+
+// -------------------------------------------------Reviews section review slideer ------------------------------------------------- 
+
+var slideDelay = 4.5;
+var slideDuration = 0.5;
+var wrap = true;
+
+var slides = document.querySelectorAll(".review-section-slide");
+var prevButton = document.querySelector("#slider-prev-button");
+var nextButton = document.querySelector("#slider-next-button");
+var progressWrap = gsap.utils.wrap(0, 1);
+
+var numSlides = slides.length;
+
+gsap.set(slides, {
+    // backgroundColor: "#232323",
+    xPercent: i => i * 100
+});
+
+var wrapX = gsap.utils.wrap(-100, (numSlides - 1) * 100);
+var timer = gsap.delayedCall(slideDelay, autoPlay);
+
+var animation = gsap.to(slides, {
+    xPercent: "+=" + (numSlides * 100),
+    duration: 1,
+    ease: "none",
+    paused: true,
+    repeat: -1,
+    modifiers: {
+        xPercent: wrapX
+    }
+});
+
+var proxy = document.createElement("div");
+var slideAnimation = gsap.to({
+    
+}, {
+   
+});
+var slideWidth = 0;
+var wrapWidth = 0;
+
+var draggable = new Draggable(proxy, {
+    trigger: ".review-section-slides-container",
+    // inertia: true,
+    onPress: updateDraggable,
+    onDrag: updateProgress,
+    onThrowUpdate: updateProgress,
+    snap: {     
+        x: snapX
+    }
+});
+
+resize();
+
+window.addEventListener("resize", resize);
+
+prevButton.addEventListener("click", function() {
+    animateSlides(1);
+});
+
+nextButton.addEventListener("click", function() {
+    animateSlides(-1);
+});
+
+function updateDraggable() {
+    timer.restart(true);
+    slideAnimation.kill();
+    this.update();
+}
+
+function animateSlides(direction) {
+    
+    timer.restart(true);
+    slideAnimation.kill();
+    var x = snapX(gsap.getProperty(proxy, "x") + direction * slideWidth);
+    
+    slideAnimation = gsap.to(proxy, {
+        ease : "expo.inOut",
+        x: x,
+        duration: slideDuration,
+        onUpdate: updateProgress
+    });  
+}
+
+function autoPlay() {  
+    if (draggable.isPressed || draggable.isDragging || draggable.isThrowing) {
+        timer.restart(true);
+    } else {
+        animateSlides(-1);
+    }
+}
+
+function updateProgress() { 
+    animation.progress(progressWrap(gsap.getProperty(proxy, "x") / wrapWidth));
+}
+
+function snapX(value) {
+    let snapped = gsap.utils.snap(slideWidth, value);
+    return wrap ? snapped : gsap.utils.clamp(-slideWidth * (numSlides - 1), 0, snapped);
+}
+
+function resize() {
+  
+    var norm = (gsap.getProperty(proxy, "x") / wrapWidth) || 0;
+
+    slideWidth = slides[0].offsetWidth;
+    wrapWidth = slideWidth * numSlides;
+
+    wrap || draggable.applyBounds({minX: -slideWidth * (numSlides - 1), maxX: 0});
+
+    gsap.set(proxy, {
+        x: norm * wrapWidth
+    });
+
+    animateSlides(0);
+    slideAnimation.progress(1);
+}
