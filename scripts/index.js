@@ -459,7 +459,6 @@ gsap.to('.title-marker-happy-path',5.5,{
         start : "top center center",
         end : "bottom center",
         toggleActions: "play none none reverse",
-        markers : true
       }
 })
 
@@ -467,12 +466,10 @@ gsap.to('.title-marker-happy-path',5.5,{
 
 const reviewSlideContainer = document.querySelector('.review-section-slides-inner')
 
-console.log(reviewSlideContainer)
 
 let reviewSlides = ''
 
 reviews.forEach((review)=>{
-    console.log(review)
     reviewSlides += `
     <div class="review-section-slide">
         <div class="review-section-slide-content-container">
@@ -489,7 +486,6 @@ reviews.forEach((review)=>{
     `
 })
 
-console.log(reviewSlides)
 
 reviewSlideContainer.innerHTML = reviewSlides
 
@@ -610,3 +606,103 @@ function resize() {
     animateSlides(0);
     slideAnimation.progress(1);
 }
+
+
+// -------------------------------------------------Values section hover bounce animation ------------------------------------------------- 
+
+
+let yinayngShadowAnim = gsap.to('#values-yinyang-shadow-img',
+    {
+        paused : true,
+        opacity : 1,
+        ease : 'power1.in',
+        yoyo : true,
+        repeat : -1
+    }
+)
+
+let yinyangAnim = gsap.to('#values-yinyang-img',
+    {
+        paused : true,
+        y : '100px',
+        ease : 'power1.in',
+        yoyo : true,
+        repeat : -1
+    }
+)
+
+let yinyangContainer = document.getElementsByClassName('values-yinyang-container')[0]
+
+yinyangContainer.addEventListener("mouseenter", () => {yinyangAnim.play(); yinayngShadowAnim.play()})
+yinyangContainer.addEventListener("mouseleave", () => {yinyangAnim.pause(); yinayngShadowAnim.pause()})
+
+
+let commitmentShadowAnim = gsap.to('#values-commitment-shadow-img',
+    {
+        paused : true,
+        opacity : 1,
+        ease : 'power1.in',
+        yoyo : true,
+        repeat : -1
+    }
+)
+let commitmentAnim = gsap.to('#values-commitment-img',
+    {
+        paused : true,
+        y : '100px',
+        ease : 'power1.in',
+        yoyo : true,
+        repeat : -1
+    }
+)
+
+let commitmentContainer = document.getElementsByClassName('values-commitment-container')[0]
+
+commitmentContainer.addEventListener("mouseenter", () => {commitmentAnim.play(); commitmentShadowAnim.play()})
+commitmentContainer.addEventListener("mouseleave", () => {commitmentAnim.pause(); commitmentShadowAnim.pause()})
+
+
+// -------------------------------------------------askus section bg angle ------------------------------------------------- 
+
+function calculateBGangle() {
+    console.log('here')
+    let askusSection = document.getElementById('askus-section')
+    
+    let askusHeight = askusSection.offsetHeight
+    let askusWidth = askusSection.offsetWidth
+    
+    let thirdSide = Math.sqrt(askusHeight * askusHeight + askusWidth * askusWidth);
+    let angleA = Math.atan(askusHeight / askusWidth) * 180 / Math.PI;
+    let angleB = 90 - a;
+    
+    askusSection.style.backgroundImage = `linear-gradient(-${angleA}deg, #E2D564 50%, transparent 50%)`;
+}
+
+calculateBGangle()
+window.addEventListener('resize', calculateBGangle)
+
+
+// -------------------------------------------------askus section arrow marker ------------------------------------------------- 
+
+gsap.to('.arrow-marker-askus-path',15.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '.askus-section-content-container',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+      }
+})
+
+gsap.to('.arrow-marker-askus-pointer-path',15.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    delay : 1,
+    scrollTrigger: {
+        trigger : '.askus-section-content-container',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+      }
+})
