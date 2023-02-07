@@ -379,10 +379,10 @@ function matterJS() {
         World.add(world,newExp)
     })
 
-    const ceiling = Bodies.rectangle(_width05, -25, _width, 50, { isStatic: true });//ceiling
-    const floor = Bodies.rectangle(_width05, _height+25, _width, 50, { isStatic: true , fillStyle : 'orange' });//floor
-    const rightwall = Bodies.rectangle(_width+25, _height05, 50, _height, { isStatic: true });//rightwall
-    const leftwall = Bodies.rectangle(-25, _height05, 50, _height, { isStatic: true });//leftwall
+    const ceiling = Bodies.rectangle(_width05, -26, _width, 50, { isStatic: true });//ceiling
+    const floor = Bodies.rectangle(_width05, _height+26, _width, 50, { isStatic: true , fillStyle : 'orange' });//floor
+    const rightwall = Bodies.rectangle(_width+26, _height05, 50, _height, { isStatic: true });//rightwall
+    const leftwall = Bodies.rectangle(-26, _height05, 50, _height, { isStatic: true });//leftwall
 
 
     World.add(world, [
@@ -704,5 +704,42 @@ gsap.to('.arrow-marker-askus-pointer-path',15.5,{
         start : "top center center",
         end : "bottom center",
         toggleActions: "play none none reverse",
+      }
+})
+
+// -------------------------------------------------footer section invisible marker ------------------------------------------------- 
+
+gsap.to('.title-marker-footer-invisible-path',5.5,{
+    strokeDashoffset: 0,
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '.footer-section-content-container',
+        start : "top center center",
+        end : "bottom center",
+        toggleActions: "play none none reverse",
+      }
+})
+
+// -------------------------------------------------body bg color change ------------------------------------------------- 
+
+gsap.to('body',.5,{
+    background : '#000',
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '#experties-section',
+        start : "top 40%",
+        end : "bottom 60%",
+        toggleActions: "play reverse play reverse",
+      }
+})
+
+gsap.to('body',.5,{
+    background : '#000',
+    ease : "expo.out",
+    scrollTrigger: {
+        trigger : '#review-section',
+        start : "top 40%",
+        end : "bottom 60%",
+        toggleActions: "play reverse play reverse",
       }
 })
