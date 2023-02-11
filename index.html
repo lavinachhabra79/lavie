@@ -19,6 +19,9 @@
     <title>La Vie</title>
 </head>
 <body>
+    <div id="loader">
+        Loading...
+    </div>
     <nav class="navbar-container">
         <div>
             <img src="./assets/images/logo/navLogo.png" alt="">
@@ -27,6 +30,8 @@
             Contact Us
         </button>
     </nav>
+    <div class="mouse-cursor"></div>
+    <div class="mouse-cursor-follow"></div>
 <!-- ------------------------------------------ Hero-Section -------------------------------------------- -->
     <main id="hero-section">
         <div class="hero-section-top-container">
@@ -87,13 +92,19 @@
         
         <div class="service-section-content-container">
             <div  class="service-section-static-bg-container">
-                <h1>0</h1>
-                <img id="service-section-static-img-1" src="assets/images/servicesSection/design.png" alt="">
-                <img id="service-section-static-img-2" src="assets/images/servicesSection/technology.png" alt="">
-                <img id="service-section-static-img-3" src="assets/images/servicesSection/business.png" alt="">
+                <div class="service-section-inner-bg-container">
+                    <h1>0</h1>
+                    <div class="service-section-static-img-container">
+                        <img id="service-section-static-img-1" src="assets/images/servicesSection/design.png" alt="">
+                    </div>
+                    <div class="service-section-static-img-container">
+                        <img id="service-section-static-img-2" src="assets/images/servicesSection/technology.png" alt="">
+                    </div>
+                    <div class="service-section-static-img-container">
+                        <img id="service-section-static-img-3" src="assets/images/servicesSection/business.png" alt="">
+                    </div>
+                </div>
             </div>
-            <!-- <div class="service-section-static-img-container">
-            </div> -->
             <div class="service-single-type-sticky-container first-sticky-container">
                 <div class="service-single-type-container">
                     <div class="service-single-type-bg-number">
@@ -152,7 +163,6 @@
                         <h1>3</h1>
                     </div>
                     <div class="service-single-type-img-container">
-                        <!-- <img src="assets/images/servicesSection/business.png" alt=""> -->
                     </div>
                     <div class="service-single-type-content-container">
                         <div class="service-single-type-title-container">
@@ -247,28 +257,44 @@
 
     <section id="values-section">
         <div class="values-section-content-container">
-            <div class="values-single-value-main-container values-yinyang-container">
-                <h1 class="values-bg-values">Values</h1>
-                <div class="values-single-value-text-container">
-                    <h1 class="title-typo">Yin Yang</h1>
-                    <p class="para-typo">Life is about balancing the good and the bad, and we are about understanding that balance and designing for a better world.</p>
+            <div class="values-section-static-bg-container">
+                <h1 class="values-bg-values">Valules</h1>
+                <div id="value-section-static-img-1" class="value-section-static-bg-img">
+                    <div class="values-single-value-img-container">
+                        <img id="values-yinyang-img" src="assets/images/valueSection/yinyang.png" alt="yim-yang">
+                    </div>
+                    <img id="values-yinyang-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
                 </div>
-                <div class="values-single-value-img-container">
-                    <img id="values-yinyang-img" src="assets/images/valueSection/yinyang.png" alt="yim-yang">
+                <div id="value-section-static-img-2" class="value-section-static-bg-img">
+                    <div class="values-single-value-img-container values-commitment-img-container">
+                        <img id="values-commitment-img" src="assets/images/valueSection/commitment.png" alt="yim-yang">
+                    </div>
+                    <img id="values-commitment-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
                 </div>
-                <img id="values-yinyang-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
+                <!-- <img id="service-section-static-img-1" src="assets/images/servicesSection/design.png" alt=""> -->
+                <!-- <img id="service-section-static-img-2" src="assets/images/servicesSection/technology.png" alt=""> -->
+                <!-- <img id="service-section-static-img-3" src="assets/images/servicesSection/business.png" alt=""> -->
+            </div>
+            <div class="values-single-type-sticky-container values-sticky-container-1">
+                <div class="values-single-value-main-container values-yinyang-container">
+                    <!-- <h1 class="values-bg-values">Values</h1> -->
+                    <div class="values-single-value-text-container">
+                        <h1 class="title-typo">Yin Yang</h1>
+                        <p class="para-typo">Life is about balancing the good and the bad, and we are about understanding that balance and designing for a better world.</p>
+                    </div>
+                    
+                </div>
             </div>
             
-            <div class="values-single-value-main-container values-commitment-container">
-                <h1 class="values-bg-values values-commitment-bg-values">Values</h1>
-                <div class="values-single-value-text-container">
-                    <h1 class="title-typo">Commitment</h1>
-                    <p class="para-typo">We believe in doing what we say and saying what we do. We want you to trust our process to deliver what's best for your business and for your users.</p>
+            <div class="values-single-type-sticky-container values-sticky-container-2">
+                <div class="values-single-value-main-container values-commitment-container">
+                    <!-- <h1 class="values-bg-values values-commitment-bg-values">Values</h1> -->
+                    <div class="values-single-value-text-container">
+                        <h1 class="title-typo">Commitment</h1>
+                        <p class="para-typo">We believe in doing what we say and saying what we do. We want you to trust our process to deliver what's best for your business and for your users.</p>
+                    </div>
+                    
                 </div>
-                <div class="values-single-value-img-container values-commitment-img-container">
-                    <img id="values-commitment-img" src="assets/images/valueSection/commitment.png" alt="yim-yang">
-                </div>
-                <img id="values-commitment-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
             </div>
         </div>
     </section>
@@ -311,7 +337,7 @@
                     <p class="para-typo">We haven't shared it, have we? We want to share them personally to you as per your requirements. So ping us and your wish will be our command.</p>
                 </div>
                 <div>
-                    <img src="assets/images/designProcessSection/case-study.png" alt="">
+                    <img id="designprocess-img" src="assets/images/designProcessSection/case-study.png" alt="">
                 </div>
             </div>
             <div class="designprocess-section-bottom-container">
@@ -348,10 +374,10 @@
     <footer id="footer-section">
         <div class="footer-section-content-container">
             <div class="footer-section-top-container">
-                <svg id="title-marker-footer-invisible" width="345" height="112" viewBox="0 0 345 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                
+                <h1 class="title-typo footer-title"><svg id="title-marker-footer-invisible" width="345" height="112" viewBox="0 0 345 112" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="title-marker-path title-marker-footer-invisible-path" d="M188 86.5711C177.667 90.9045 149.5 96.5711 126 96.5711C94.8552 96.5711 49.5 91.0713 26 76.5711C13.5 71.5713 9 62.0711 9 53.0711C9 34.5713 62 20.7181 87 15.5711C121 8.57129 210.5 5.20825 243 15.5711C277.5 26.5713 301.5 35.0715 315 44.0713C328.5 53.0711 343.5 61.5713 332 71.5713C320.5 81.5713 197.5 101.222 164.5 102.071C131.5 102.921 55.4 104.571 37 96.5711" stroke="#ECDE62" stroke-width="17"/>
-                </svg>
-                <h1 class="title-typo footer-title">Creating invisible <br/> experiences</h1>
+                </svg>Creating invisible <br/> experiences</h1>
                 <p>Because good design is invisible!</p>
                 <button>Contact Us</button>
             </div>

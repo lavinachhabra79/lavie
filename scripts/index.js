@@ -6,6 +6,45 @@ import { reviews } from "../data/reviews.js"
 // gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Draggable);
 
+var $circle = $('.mouse-cursor'),
+    $follow = $('.mouse-cursor-follow');
+
+function moveCircle(e) {
+  TweenLite.to($circle, 0.3, {
+      x: e.clientX,
+      y: e.clientY
+  });
+  TweenLite.to($follow, 0.7, {
+      x: e.clientX,
+      y: e.clientY
+  });  
+}
+
+function hoverFunc(e) {
+  TweenLite.to($circle, 0.3, {
+    opacity: 1,
+    scale: 0
+  });
+  TweenLite.to($follow, 0.3, {
+      scale: 3
+  });  
+}
+
+function unhoverFunc(e) {
+  TweenLite.to($circle, 0.3, {
+    opacity: 1,
+    scale: 1
+  });
+  TweenLite.to($follow, 0.3, {
+      scale: 1
+  });  
+}
+
+$(window).on('mousemove', moveCircle);
+
+$("a").hover(hoverFunc, unhoverFunc);
+$("button").hover(hoverFunc, unhoverFunc);
+
 // -------------------------------------------------Navbar color change ------------------------------------------------- 
 function navColor(){
     var navbar = document.querySelector('.navbar-container')
@@ -191,7 +230,7 @@ gsap.to('.title-marker-design-path',5.5,{
         trigger : '.first-sticky-container',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
 
@@ -202,7 +241,7 @@ gsap.to('.title-marker-technology-path',7.5,{
         trigger : '.sticky-container-2',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
 
@@ -213,7 +252,7 @@ gsap.to('.title-marker-business-path',3.5,{
         trigger : '.last-sticky-container',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
 
@@ -458,7 +497,7 @@ gsap.to('.title-marker-happy-path',5.5,{
         trigger : '.review-section-content-container',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
 
@@ -491,7 +530,7 @@ reviewSlideContainer.innerHTML = reviewSlides
 
 // -------------------------------------------------Reviews section review slideer ------------------------------------------------- 
 
-var slideDelay = 4.5;
+var slideDelay = 3;
 var slideDuration = 0.5;
 var wrap = true;
 
@@ -530,16 +569,17 @@ var slideAnimation = gsap.to({
 var slideWidth = 0;
 var wrapWidth = 0;
 
-var draggable = new Draggable(proxy, {
-    trigger: ".review-section-slides-container",
-    // inertia: true,
-    onPress: updateDraggable,
-    onDrag: updateProgress,
-    onThrowUpdate: updateProgress,
-    snap: {     
-        x: snapX
-    }
-});
+// var draggable = new Draggable(proxy, {
+//     trigger: ".review-section-slides-container",
+//     // inertia: true,
+//     // onPress: updateDraggable,
+//     // onDrag: updateProgress,
+//     // onThrowUpdate: updateProgress,
+//     cursor: "none",
+//     snap: {     
+//         x: snapX
+//     }
+// });
 
 resize();
 
@@ -574,11 +614,11 @@ function animateSlides(direction) {
 }
 
 function autoPlay() {  
-    if (draggable.isPressed || draggable.isDragging || draggable.isThrowing) {
-        timer.restart(true);
-    } else {
+    // if (draggable.isPressed || draggable.isDragging || draggable.isThrowing) {
+    //     timer.restart(true);
+    // } else {
         animateSlides(-1);
-    }
+    // }
 }
 
 function updateProgress() { 
@@ -607,25 +647,52 @@ function resize() {
     slideAnimation.progress(1);
 }
 
+// -------------------------------------------------Values section bg img ------------------------------------------------- 
+
+gsap.to('#value-section-static-img-1',.5,{
+    opacity : 1,
+    scale : 1,
+    scrollTrigger : {
+        trigger : '.values-sticky-container-1',
+        start: 'top 100%',
+        end: 'bottom center',
+        toggleActions: "play reverse play reverse",
+    }
+})
+
+
+gsap.to('#value-section-static-img-2',.5,{
+    y: '-50px',
+    opacity : 1,
+    scale : 1,
+    scrollTrigger : {
+        trigger : '.values-sticky-container-2',
+        start: 'top center',
+        end: 'bottom center',
+        toggleActions: "play reverse play reverse",
+    }
+})
+
+
 
 // -------------------------------------------------Values section hover bounce animation ------------------------------------------------- 
 
 
-let yinayngShadowAnim = gsap.to('#values-yinyang-shadow-img',
+let yinayngShadowAnim = gsap.to('#values-yinyang-shadow-img', 3,
     {
         paused : true,
         opacity : 1,
-        ease : 'power1.in',
+        ease : 'power1.inOut',
         yoyo : true,
         repeat : -1
     }
 )
 
-let yinyangAnim = gsap.to('#values-yinyang-img',
+let yinyangAnim = gsap.to('#values-yinyang-img',3,
     {
         paused : true,
-        y : '100px',
-        ease : 'power1.in',
+        y : '80px',
+        ease : 'power1.inOut',
         yoyo : true,
         repeat : -1
     }
@@ -637,20 +704,20 @@ yinyangContainer.addEventListener("mouseenter", () => {yinyangAnim.play(); yinay
 yinyangContainer.addEventListener("mouseleave", () => {yinyangAnim.pause(); yinayngShadowAnim.pause()})
 
 
-let commitmentShadowAnim = gsap.to('#values-commitment-shadow-img',
+let commitmentShadowAnim = gsap.to('#values-commitment-shadow-img',3,
     {
         paused : true,
         opacity : 1,
-        ease : 'power1.in',
+        ease : 'power1.inOut',
         yoyo : true,
         repeat : -1
     }
 )
-let commitmentAnim = gsap.to('#values-commitment-img',
+let commitmentAnim = gsap.to('#values-commitment-img',3,
     {
         paused : true,
-        y : '100px',
-        ease : 'power1.in',
+        y : '80px',
+        ease : 'power1.inOut',
         yoyo : true,
         repeat : -1
     }
@@ -691,7 +758,7 @@ gsap.to('.arrow-marker-askus-path',15.5,{
         trigger : '.askus-section-content-container',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
 
@@ -703,9 +770,21 @@ gsap.to('.arrow-marker-askus-pointer-path',15.5,{
         trigger : '.askus-section-content-container',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
+
+
+gsap.to('#designprocess-img', 3,
+{
+    // paused : true,
+    // opacity : 1,
+    y : '80px',
+    ease : 'power1.inOut',
+    yoyo : true,
+    repeat : -1
+}
+)
 
 // -------------------------------------------------footer section invisible marker ------------------------------------------------- 
 
@@ -716,7 +795,7 @@ gsap.to('.title-marker-footer-invisible-path',5.5,{
         trigger : '.footer-section-content-container',
         start : "top center center",
         end : "bottom center",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       }
 })
 
@@ -724,7 +803,7 @@ gsap.to('.title-marker-footer-invisible-path',5.5,{
 
 gsap.to('body',.5,{
     background : '#000',
-    ease : "expo.out",
+    ease : "expo.inOut",
     scrollTrigger: {
         trigger : '#experties-section',
         start : "top 40%",
@@ -735,11 +814,30 @@ gsap.to('body',.5,{
 
 gsap.to('body',.5,{
     background : '#000',
-    ease : "expo.out",
+    ease : "expo.inOut",
     scrollTrigger: {
         trigger : '#review-section',
         start : "top 40%",
         end : "bottom 60%",
         toggleActions: "play reverse play reverse",
       }
+})
+
+gsap.to('body',.5,{
+    background : '#000',
+    ease : "expo.inOut",
+    scrollTrigger: {
+        trigger : '#footer-section',
+        start : "top 40%",
+        end : "bottom 60%",
+        toggleActions: "play reverse play reverse",
+      }
+})
+
+// -------------------------------------------------body bg color change ------------------------------------------------- 
+
+let loader = document.getElementById('loader')
+
+window.addEventListener('load', function(){
+    loader.style.display = 'none'
 })
