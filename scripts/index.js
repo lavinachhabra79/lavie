@@ -6,6 +6,8 @@ import { reviews } from "../data/reviews.js"
 // gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Draggable);
 
+
+// -------------------------------------------------mouse pointer change ------------------------------------------------- 
 var $circle = $('.mouse-cursor'),
     $follow = $('.mouse-cursor-follow');
 
@@ -42,8 +44,8 @@ function unhoverFunc(e) {
 
 $(window).on('mousemove', moveCircle);
 
-$("a").hover(hoverFunc, unhoverFunc);
-$("button").hover(hoverFunc, unhoverFunc);
+$("a , button, input, textarea, label, select, option").hover(hoverFunc, unhoverFunc);
+// $("button").hover(hoverFunc, unhoverFunc);
 
 // -------------------------------------------------Navbar color change ------------------------------------------------- 
 function navColor(){
@@ -59,6 +61,174 @@ function navColor(){
 
 window.addEventListener('scroll', navColor)
 
+// -------------------------------------------------contact us menu animation ------------------------------------------------- 
+
+
+// let selectInputInquiryType = document.querySelector('#inquiryType')
+// let selectDropdown = document.querySelector('#select-dropdown')
+
+// selectInputInquiryType.addEventListener('focus',()=>{
+//     selectDropdown.style = 'transform: rotate(180deg)'
+// })
+// selectInputInquiryType.addEventListener('blur',()=>{
+//     selectDropdown.style = 'transform: rotate(0deg)'
+// })
+
+let contactBtns = document.querySelectorAll("#contactUsBtn")
+
+// .addEventListener("click", handleOpenMenu)
+
+contactBtns.forEach((btn)=>{
+    btn.addEventListener("click", handleOpenMenu)
+})
+
+document.getElementById("contactCloseBtn").addEventListener("click", handleCloseMenu)
+
+
+function handleOpenMenu() {
+    var menuOpenTimeline = gsap.timeline()
+    menuOpenTimeline.play()
+    console.log('click')
+
+    let element = document.querySelector('.contactus-form-container')
+
+    
+    const formInput = element.querySelectorAll('input , select , textarea , label, svg')
+
+
+    menuOpenTimeline.to('#contact-section', {
+        duration : 0.1,
+        ease : 'power1.inOut',
+        clipPath : 'circle(141.4% at 100% 0)',
+    })
+    
+    menuOpenTimeline.to('.contactus-section-color-1', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0.1')
+    menuOpenTimeline.to('.contactus-section-color-2', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0.1')
+    menuOpenTimeline.to('.contactus-section-color-3', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0.1')
+    menuOpenTimeline.to('.contactus-section-color-4', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0.1')
+    menuOpenTimeline.to('.contactus-section-color-5', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0.1')
+    menuOpenTimeline.to('.contactus-section-color-bg', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0.1')
+    menuOpenTimeline.to('#contactus-section-content-container-main', {
+        duration : 0.8,
+        ease : 'power1.out',
+        clipPath : 'circle(141.4% at 100% 0)',
+    },'<0')
+    menuOpenTimeline.to(formInput, { 
+        y: 0, 
+        // rotate : 0,
+        opacity : 1,
+        ease : 'power2.out',
+        duration: 0.8, 
+        stagger: 0.15 
+    },'>0.1')
+
+    menuOpenTimeline.to('.arrow-marker-contactus-path',{
+        strokeDashoffset: 0,
+        duration: 15.5, 
+        ease : "expo.out",
+    })
+    menuOpenTimeline.to('.arrow-marker-contactus-pointer-path',{
+        strokeDashoffset: 0,
+        duration: 15.5, 
+        ease : "expo.out",
+    },'<1')
+}
+
+function handleCloseMenu(){
+    var menuCloseTimeline = gsap.timeline()
+    menuCloseTimeline.play()
+    console.log('click')
+    
+    let element = document.querySelector('.contactus-form-container')
+
+    
+    const formInput = element.querySelectorAll('input , select , textarea , label, svg')
+    
+
+    menuCloseTimeline.to('.arrow-marker-contactus-path',{
+        strokeDashoffset: 0,
+        duration: 1, 
+        ease : "expo.out",
+    })
+    menuCloseTimeline.to('.arrow-marker-contactus-pointer-path',{
+        strokeDashoffset: 0,
+        duration: 1, 
+        ease : "expo.out",
+    },'<1')
+    menuCloseTimeline.to(formInput, { 
+        y: 300, 
+        // rotate : '20deg',
+        opacity : 0,
+        ease : 'power2.in',
+        duration: 0.5, 
+        stagger: 0.15 
+    },'<0.1')
+    menuCloseTimeline.to('#contactus-section-content-container-main', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.5')
+    menuCloseTimeline.to('.contactus-section-color-bg', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0')
+    menuCloseTimeline.to('.contactus-section-color-5', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.1')
+    menuCloseTimeline.to('.contactus-section-color-4', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.1')
+    menuCloseTimeline.to('.contactus-section-color-3', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.1')
+    menuCloseTimeline.to('.contactus-section-color-2', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.1')
+    menuCloseTimeline.to('.contactus-section-color-1', {
+        duration : 0.8,
+        ease : 'power1.in',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.1')
+    menuCloseTimeline.to('#contact-section', {
+        duration : 0.8,
+        ease : 'power1.inOut',
+        clipPath : 'circle(0% at 100% 0)',
+    },'<0.1')
+    
+}
 // -------------------------------------------------Hero section typewriter ------------------------------------------------- 
 
 // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
@@ -774,6 +944,7 @@ gsap.to('.arrow-marker-askus-pointer-path',15.5,{
       }
 })
 
+// -------------------------------------------------design process img floater ------------------------------------------------- 
 
 gsap.to('#designprocess-img', 3,
 {

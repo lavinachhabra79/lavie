@@ -19,17 +19,89 @@
     <title>La Vie</title>
 </head>
 <body>
+<!-- ------------------------------------------ loading-section -------------------------------------------- -->
     <div id="loader">
         Loading...
     </div>
+<!-- ------------------------------------------ contactus-section -------------------------------------------- -->
+    <section id="contact-section">
+        <div class="contactus-section-color contactus-section-color-1"></div>
+        <div class="contactus-section-color contactus-section-color-2"></div>
+        <div class="contactus-section-color contactus-section-color-3"></div>
+        <div class="contactus-section-color contactus-section-color-4"></div>
+        <div class="contactus-section-color contactus-section-color-5"></div>
+        <div class="contactus-section-color contactus-section-color-bg"></div>
+        <div id='contactus-section-content-container-main' class="contactus-section-content-container">
+            <div>
+                <div>
+                    <img src="assets/images/logo/navLogo.png" alt="logo">
+                </div>
+                <button id="contactCloseBtn">
+                    <img src="assets/images/icons/back.png" alt="">
+                    <h4>Back</h4>
+                </button>
+            </div>
+            <div>
+                <h1 class="title-typo contactus-title">Ask us anything!</h1>
+            </div>
+            <div class="contactus-main-form-img-conatainer">
+                <form  action="https://formsubmit.co/madhav1panchhiwala@gmail.com" method="post" class="contactus-form-container">
+                    <div class="contactus-form-row">
+                        <label for="fullname">Full name</label>
+                        <input name="fullname" type="text"/>
+                    </div>
+                    <div class="contactus-form-row">
+                        <label for="emailadd">Email address</label>
+                        <input name='emailadd' type="email"/>
+                    </div>
+                    <div class="contactus-form-row contactus-form-select">
+                        <svg id="select-dropdown" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.83335 7.83366L1.50002 3.50033C0.972242 2.97255 0.854465 2.36866 1.14669 1.68866C1.4378 1.00755 1.95835 0.666992 2.70835 0.666992H11.2917C12.0417 0.666992 12.5622 1.00755 12.8534 1.68866C13.1456 2.36866 13.0278 2.97255 12.5 3.50033L8.16669 7.83366C8.00002 8.00033 7.81946 8.12532 7.62502 8.20866C7.43058 8.29199 7.22224 8.33366 7.00002 8.33366C6.7778 8.33366 6.56946 8.29199 6.37502 8.20866C6.18058 8.12532 6.00002 8.00033 5.83335 7.83366Z" fill="white"/>
+                        </svg>                            
+                        <label for="inquiry">Inquiry type</label>
+                        <select name="inquiry" id="inquiryType">
+                            <option value="design">Design</option>
+                            <option value="development">Development</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="maintainence">Maintainence</option>
+                        </select>
+                    </div>
+                    <div class="contactus-form-row">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    </div>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/underConstruction.html">
+                    <div class="contactus-form-row">
+                        <button class="contactus-submit-btn" type="submit">Send</button>
+                    </div>
+                </form>
+                <div class="contactus-form-img-right-container">
+                    <!-- <div> -->
+                        <h3 class="contactus-right-para">Or just say, Whaaaat's up!</h3>
+                        <svg id="arrow-marker-contactus" width="103" height="164" viewBox="0 0 103 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="title-marker-path arrow-marker-contactus-path" d="M30.0827 9.21232C36.2349 9.63439 51.3909 14.1662 62.7973 28.9166C77.0552 47.3546 72.7496 62.8221 69.2864 68.5889C65.8231 74.3557 52.4492 86.0414 33.1214 83.4557C13.1465 78.4552 29.9158 56.8798 46.8188 52.3506C63.7218 47.8215 80.7835 67.0611 82.4658 73.3397C84.1481 79.6182 93.3523 100.446 77.7266 123.268C65.226 141.525 47.2731 153.859 39.8592 157.743" stroke="white" stroke-width="5"/>
+                            <path class="title-marker-path arrow-marker-contactus-pointer-path" d="M66.5261 156.81C58.4652 158.279 41.8086 161.155 39.6697 160.9C37.5308 160.645 39.869 139.106 41.3055 128.368" stroke="white" stroke-width="5"/>
+                        </svg>                            
+                    <!-- </div> -->
+                    <div>
+                        <img src="assets/images/contactUsSection/contact-us.png" alt="whatsup">
+                    </div>
+                </div>
+            </div>
+            <!-- <button id="contactCloseBtn">close</button> -->
+        </div>
+    </section>
+<!-- ------------------------------------------ navbar-section -------------------------------------------- -->
     <nav class="navbar-container">
         <div>
             <img src="./assets/images/logo/navLogo.png" alt="">
         </div>
-        <button class="navbar-btn">
+        <button id="contactUsBtn" class="navbar-btn">
             Contact Us
         </button>
     </nav>
+<!-- ------------------------------------------ mouse-cursor -------------------------------------------- -->
     <div class="mouse-cursor"></div>
     <div class="mouse-cursor-follow"></div>
 <!-- ------------------------------------------ Hero-Section -------------------------------------------- -->
@@ -309,7 +381,7 @@
                 </h1>
 
                 <div class="askus-section-bottom-container">
-                    <button>Ask Us Anything</button>
+                    <button id="contactUsBtn">Ask Us Anything</button>
                     <div class="askus-section-bottom-abs-container">
                             <svg id="arrow-marker-askus" width="157" height="69" viewBox="0 0 157 69" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path class="title-marker-path arrow-marker-askus-path" d="M154 37.2195C152 31.3862 143.7 17.9195 126.5 10.7195C105 1.7195 91.174 9.88169 86.5 14.7195C81.8261 19.5573 74 35.5 81.5 53.5C91.5 71.5 108 49.718 108 32.2188C108 14.7195 85 3.21875 78.5 3.21875C72 3.21875 49.5 -0.28125 31.5 20.7188C17.1 37.5187 9.83333 58.0521 8 66.2188" stroke="black" stroke-width="5"/>
@@ -341,7 +413,7 @@
                 </div>
             </div>
             <div class="designprocess-section-bottom-container">
-                <button>Ask Us Anything, Including Our Case Studies</button>
+                <button id="contactUsBtn">Ask Us Anything, Including Our Case Studies</button>
             </div>
         </div>
     </section>
@@ -379,7 +451,7 @@
                     <path class="title-marker-path title-marker-footer-invisible-path" d="M188 86.5711C177.667 90.9045 149.5 96.5711 126 96.5711C94.8552 96.5711 49.5 91.0713 26 76.5711C13.5 71.5713 9 62.0711 9 53.0711C9 34.5713 62 20.7181 87 15.5711C121 8.57129 210.5 5.20825 243 15.5711C277.5 26.5713 301.5 35.0715 315 44.0713C328.5 53.0711 343.5 61.5713 332 71.5713C320.5 81.5713 197.5 101.222 164.5 102.071C131.5 102.921 55.4 104.571 37 96.5711" stroke="#ECDE62" stroke-width="17"/>
                 </svg>Creating invisible <br/> experiences</h1>
                 <p>Because good design is invisible!</p>
-                <button>Contact Us</button>
+                <button id="contactUsBtn">Contact Us</button>
             </div>
             <div class="footer-section-bottom-container">
                 <div class="footer-section-bottom-container-copy-container">

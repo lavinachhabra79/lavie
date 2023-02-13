@@ -35,7 +35,7 @@ body{
     
 }
 
-button, a{
+button, a, input, textarea, label, select, option{
     cursor: none;
 }
 
@@ -63,8 +63,8 @@ button, a{
     background-color: var(--color-prim);
     width: 20px;
     height: 20px;
-  left:-20px;
-  top:-20px;
+    left:-5px;
+    top:0px;
     border-radius: 100%;
     z-index: 1;
     z-index: 10001;
@@ -76,8 +76,8 @@ button, a{
     background-color: #ECDE6233;
     width: 30px;
     height: 30px;
-  left:-25px;
-  top:-25px;
+    left:-10px;
+    top:-5px;
     border-radius: 100%;
     z-index: 1;
     user-select: none;
@@ -96,6 +96,193 @@ button, a{
     z-index: 101;
 }
 
+
+/*-------------------------------------------- contactus --------------------------------------------*/
+
+#contact-section{
+    position: fixed;
+    /* background: url('/assets/images/contactUsSection/menu-bg.jpg'); */
+    background-size:cover ;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 101;
+    clip-path: circle(0% at 100% 0);
+    overflow-y: scroll;
+    top: 0px;
+    left: 0px;
+    bottom: 1px;
+}
+
+.contactus-section-color{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(0% at 100% 0);
+    /* background: red; */
+}
+
+.contactus-section-color-1{
+    background: #9840DD;
+}
+.contactus-section-color-2{
+    background: #2474BD;
+}
+.contactus-section-color-3{
+    background: #E97878;
+}
+.contactus-section-color-4{
+    background: #D2955C;
+}
+.contactus-section-color-5{
+    background: #31AA86;
+}
+.contactus-section-color-bg{
+    background: #000;
+}
+.contactus-section-color-yellow{
+    background: var(--color-prim);
+}
+
+.contactus-section-content-container{
+    width: 100%;
+    height: max-content;
+    padding: 20px 54px;
+    clip-path: circle(0% at 100% 0);
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+#contactCloseBtn{
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+    column-gap: 18px;
+    margin-top: 48px;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.contactus-title{
+    margin-top: 24px;
+}
+
+.contactus-main-form-img-conatainer{
+    margin-top: 64px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactus-form-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.contactus-form-container label{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25.1px;
+    translate:  0px 600px ;
+    /* rotate: 20deg; */
+    opacity: 0;
+}
+
+.contactus-form-container input, 
+.contactus-form-container select,
+.contactus-form-container textarea{
+    margin-top: 7px;
+    height: 56px;
+    outline: none;
+    border: 2px solid #FFFFFFB2;
+    border-radius: 12px;
+    background: none;
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25.1px;
+    padding: 0 24px;
+    translate:  0px 600px ;
+    /* rotate: 20deg; */
+    opacity: 0;
+}
+
+.contactus-form-container select{
+    appearance: none;
+}
+
+option{
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.contactus-form-select svg{
+    position: absolute;
+    right: 1rem;
+    top: 40%;
+    translate:  0px 600px ;
+    opacity: 0;
+}
+
+.contactus-form-container textarea{
+    height: 168px;
+    padding: 16px 24px;
+}
+
+.contactus-form-container input:focus, 
+.contactus-form-container select:focus,
+.contactus-form-container textarea:focus{
+    border: 2px solid var(--color-prim);
+}
+
+.contactus-form-row{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 48px;
+}
+
+.contactus-submit-btn{
+    width: 100%;
+    background: var(--color-prim);
+    padding: 25px 0;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 31.12px;
+    border: 3px solid var(--color-prim);
+    border-radius: 8px;
+    transition: var(--btn-transition);
+}
+.contactus-submit-btn:hover{
+    background: none;
+    border: 3px solid var(--color-white);;
+    color: var(--color-white);
+}
+
+.contactus-form-img-right-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactus-right-para{
+    font-family: 'Corinthia', cursive;
+    display: block;
+    width: 500px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    margin-bottom: 18px;
+}
+
+.arrow-marker-contactus-path, .arrow-marker-contactus-path{
+    stroke-dashoffset: 1000;
+}
 /*-------------------------------------------- Navbar --------------------------------------------*/
 .navbar-container{
     position: fixed;
