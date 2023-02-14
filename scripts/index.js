@@ -1005,10 +1005,46 @@ gsap.to('body',.5,{
       }
 })
 
-// -------------------------------------------------body bg color change ------------------------------------------------- 
+// -------------------------------------------------loader change ------------------------------------------------- 
 
-let loader = document.getElementById('loader')
+// let loader = document.getElementById('loader')
 
-window.addEventListener('load', function(){
-    loader.style.display = 'none'
-})
+// const loaderCols = element.querySelectorAll('.loader-col')
+window.addEventListener('load', setTimeout(function(){
+
+    var loaderTimeline = gsap.timeline()
+    
+
+    loaderTimeline.to(' .loader-col',0.5,{
+        // height : 0,
+        stagger : 0.1,
+        ease : 'power1.in',
+        background : '#ECDE62',
+        color : '#000'
+    },'>1')
+
+    loaderTimeline.to('.loading-h1',1,{
+        opacity : 0,
+        stagger : 0.1,
+        ease : 'power1.out',
+    },'>0.5')
+
+    loaderTimeline.to(' .loader-col',1,{
+        clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+        // clipPath: 'polygon(99% 0, 100% 0, 100% 100%, 99% 100%)',
+        // width:'1px',
+        stagger : 0.1,
+        ease : 'power1.out',
+    },'<0.5')
+    
+    // loaderTimeline.to(' .loader-col',0.5,{
+    //     height : 0,
+    //     stagger : 0.2,
+    //     ease : 'power1.in'
+    // },'<1.5')
+    loaderTimeline.to('#loader',0.1,{
+        display : 'none'
+    },'>0.01')
+    
+    // loader.style.display = 'none'
+}),5000)

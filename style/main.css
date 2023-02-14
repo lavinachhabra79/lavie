@@ -26,7 +26,7 @@ font-family: 'Work Sans', sans-serif;
     --color-black-80 : #333333;
     --color-black-60: #666666;
     --btn-transition: all 0.15s ease-in-out;
-    cursor: none;
+    /* cursor: none; */
 }
 
 body{
@@ -85,6 +85,25 @@ button, a, input, textarea, label, select, option{
     z-index: 10000;
     transform: scale(1);
 }
+
+@media only screen and (max-width: 1000px){
+    .title-typo{
+        font-size: 50px;
+        line-height: 58.65px;
+    }
+
+    .list-typo{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 26px;
+    }
+    
+    .para-typo{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 34px;
+    }
+}
 /*-------------------------------------------- loading --------------------------------------------*/
 
 #loader{
@@ -92,11 +111,39 @@ button, a, input, textarea, label, select, option{
     height: 100vh;
     width: 100%;
     color: white;
-    background: #000;
     z-index: 101;
+    display: flex;
+    gap: -1px;
+    overflow: hidden;
 }
 
+.loader-col{
+    background: #000;
+    height: 100vh;
+    width: 101%;
+    display: flex;
+    align-items: center;
+    clip-path: polygon(-1% 0, 101% 0, 101% 101%, -1% 101%);
+    overflow: hidden;
+    
+}
 
+.loading-h1{
+    /* width: 100%; */
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 82.11px;
+    /* overflow-x: hidden; */
+    /* rotate: 90deg; */
+    /* opacity: 0; */
+}
+@media only screen and (max-width: 1000px){
+    .loading-h1{
+        font-size: 20px;
+        line-height: 56px;
+    }
+}
 /*-------------------------------------------- contactus --------------------------------------------*/
 
 #contact-section{
@@ -182,11 +229,17 @@ button, a, input, textarea, label, select, option{
     position: relative;
 }
 
-.contactus-form-container label{
+.contactus-form-container label,
+.contactus-form-container input, 
+.contactus-form-container select,
+.contactus-form-container textarea{
     font-weight: 500;
     font-size: 20px;
     line-height: 25.1px;
     translate:  0px 600px ;
+}
+
+.contactus-form-container label{    
     /* rotate: 20deg; */
     opacity: 0;
 }
@@ -201,11 +254,7 @@ button, a, input, textarea, label, select, option{
     border-radius: 12px;
     background: none;
     color: var(--color-white);
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 25.1px;
     padding: 0 24px;
-    translate:  0px 600px ;
     /* rotate: 20deg; */
     opacity: 0;
 }
@@ -249,7 +298,7 @@ option{
 .contactus-submit-btn{
     width: 100%;
     background: var(--color-prim);
-    padding: 25px 0;
+    padding: 22px 0;
     font-weight: 800;
     font-size: 21px;
     line-height: 31.12px;
@@ -282,6 +331,88 @@ option{
 
 .arrow-marker-contactus-path, .arrow-marker-contactus-path{
     stroke-dashoffset: 1000;
+}
+.contactus-section-bottom-container{
+    margin-top: 75px;
+    padding: 0;
+    /* padding-bottom: 42px; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1000px){
+    .contactus-section-content-container{
+        padding: 20px;
+    }
+    .contactus-main-form-img-conatainer{
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }   
+    .contactus-form-container{
+        width: 100%;
+    }
+    .contactus-form-container label,
+    .contactus-form-container input, 
+    .contactus-form-container select,
+    .contactus-form-container textarea{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20.8px;
+    }
+
+    .contactus-form-container input, 
+    .contactus-form-container select,
+    .contactus-form-container textarea{
+        border: 2px solid #FFFFFF4D;
+        padding: 0 14px;
+        height: 48px;
+    }
+
+    .contactus-form-img-right-container{
+        width: 100%;
+    }
+
+    .contactus-submit-btn{
+        padding: 17px 0;
+    }
+    .contactus-form-img-right-container{
+        margin-top: 16px;
+    }
+
+    .contactus-right-para{
+        width: auto;
+        text-align: center;
+    }
+    .contactus-form-img-img-container{
+        text-align: center;
+        margin-top: 20px;
+    }
+    .contactus-form-img-img-container img{
+        width: 80%;
+    }
+
+    .contactus-section-bottom-container{
+        margin-top: 75px;
+        padding: 0;
+        /* padding-bottom: 42px; */
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        row-gap: 24px;
+        width: 100%;
+        padding-bottom: 12px;
+    }
+    /* .footer-section-bottom-container-copy-container{
+        width: 100%;
+        text-align: center;
+    }
+    .footer-section-bottom-container-img-container{
+        column-gap: 46px;
+    } */
 }
 /*-------------------------------------------- Navbar --------------------------------------------*/
 .navbar-container{
