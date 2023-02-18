@@ -102,26 +102,26 @@ function handleOpenMenu() {
         clipPath : 'circle(141.4% at 100% 0)',
     })
     
-    menuOpenTimeline.to('.contactus-section-color-1', {
-        duration : 0.8,
-        ease : 'power1.out',
-        clipPath : 'circle(141.4% at 100% 0)',
-    },'<0.1')
-    menuOpenTimeline.to('.contactus-section-color-2', {
-        duration : 0.8,
-        ease : 'power1.out',
-        clipPath : 'circle(141.4% at 100% 0)',
-    },'<0.1')
-    menuOpenTimeline.to('.contactus-section-color-3', {
-        duration : 0.8,
-        ease : 'power1.out',
-        clipPath : 'circle(141.4% at 100% 0)',
-    },'<0.1')
-    menuOpenTimeline.to('.contactus-section-color-4', {
-        duration : 0.8,
-        ease : 'power1.out',
-        clipPath : 'circle(141.4% at 100% 0)',
-    },'<0.1')
+    // menuOpenTimeline.to('.contactus-section-color-1', {
+    //     duration : 0.8,
+    //     ease : 'power1.out',
+    //     clipPath : 'circle(141.4% at 100% 0)',
+    // },'<0.1')
+    // menuOpenTimeline.to('.contactus-section-color-2', {
+    //     duration : 0.8,
+    //     ease : 'power1.out',
+    //     clipPath : 'circle(141.4% at 100% 0)',
+    // },'<0.1')
+    // menuOpenTimeline.to('.contactus-section-color-3', {
+    //     duration : 0.8,
+    //     ease : 'power1.out',
+    //     clipPath : 'circle(141.4% at 100% 0)',
+    // },'<0.1')
+    // menuOpenTimeline.to('.contactus-section-color-4', {
+    //     duration : 0.8,
+    //     ease : 'power1.out',
+    //     clipPath : 'circle(141.4% at 100% 0)',
+    // },'<0.1')
     menuOpenTimeline.to('.contactus-section-color-5', {
         duration : 0.8,
         ease : 'power1.out',
@@ -169,16 +169,16 @@ function handleCloseMenu(){
     const formInput = element.querySelectorAll('input , select , textarea , label, svg')
     
 
-    menuCloseTimeline.to('.arrow-marker-contactus-path',{
-        strokeDashoffset: 0,
-        duration: 1, 
-        ease : "expo.out",
-    })
+    // menuCloseTimeline.to('.arrow-marker-contactus-path',{
+    //     strokeDashoffset: 0,
+    //     duration: 1, 
+    //     ease : "expo.out",
+    // })
     menuCloseTimeline.to('.arrow-marker-contactus-pointer-path',{
         strokeDashoffset: 0,
-        duration: 1, 
+        duration: 0.5, 
         ease : "expo.out",
-    },'<1')
+    },)
     menuCloseTimeline.to(formInput, { 
         y: 300, 
         // rotate : '20deg',
@@ -202,26 +202,26 @@ function handleCloseMenu(){
         ease : 'power1.in',
         clipPath : 'circle(0% at 100% 0)',
     },'<0.1')
-    menuCloseTimeline.to('.contactus-section-color-4', {
-        duration : 0.8,
-        ease : 'power1.in',
-        clipPath : 'circle(0% at 100% 0)',
-    },'<0.1')
-    menuCloseTimeline.to('.contactus-section-color-3', {
-        duration : 0.8,
-        ease : 'power1.in',
-        clipPath : 'circle(0% at 100% 0)',
-    },'<0.1')
-    menuCloseTimeline.to('.contactus-section-color-2', {
-        duration : 0.8,
-        ease : 'power1.in',
-        clipPath : 'circle(0% at 100% 0)',
-    },'<0.1')
-    menuCloseTimeline.to('.contactus-section-color-1', {
-        duration : 0.8,
-        ease : 'power1.in',
-        clipPath : 'circle(0% at 100% 0)',
-    },'<0.1')
+    // menuCloseTimeline.to('.contactus-section-color-4', {
+    //     duration : 0.8,
+    //     ease : 'power1.in',
+    //     clipPath : 'circle(0% at 100% 0)',
+    // },'<0.1')
+    // menuCloseTimeline.to('.contactus-section-color-3', {
+    //     duration : 0.8,
+    //     ease : 'power1.in',
+    //     clipPath : 'circle(0% at 100% 0)',
+    // },'<0.1')
+    // menuCloseTimeline.to('.contactus-section-color-2', {
+    //     duration : 0.8,
+    //     ease : 'power1.in',
+    //     clipPath : 'circle(0% at 100% 0)',
+    // },'<0.1')
+    // menuCloseTimeline.to('.contactus-section-color-1', {
+    //     duration : 0.8,
+    //     ease : 'power1.in',
+    //     clipPath : 'circle(0% at 100% 0)',
+    // },'<0.1')
     menuCloseTimeline.to('#contact-section', {
         duration : 0.8,
         ease : 'power1.inOut',
@@ -343,14 +343,30 @@ gsap.utils.toArray('.counter-value').forEach(function (el) {
 });
 
 // -------------------------------------------------Achievement section play button animation------------------------------------------------- 
+let mm = gsap.matchMedia();
 
-gsap.from('.play-outer-circle',2,{
+mm.add("(min-width: 1000px)", () => {
+  // desktop setup code here...
+  gsap.from('.play-outer-circle',2,{
     width : "220px",
     height : "220px",
     ease : 'ease.out',
     yoyo : true,
     repeat : -1
 })
+});
+
+mm.add("(max-width: 999px)", () => {
+  // mobile setup code here...
+  gsap.from('.play-outer-circle',2,{
+    width : "120px",
+    height : "120px",
+    ease : 'ease.out',
+    yoyo : true,
+    repeat : -1
+})
+});
+
 
 
 // -------------------------------------------------Service section bg image ------------------------------------------------- 
@@ -440,6 +456,7 @@ gsap.to(list1('.service-single-type-subservice'),0.5,{
         start : "top center center",
         end : "bottom center",
         toggleActions: "play none play reverse",
+        // markers: true
       }
 })
 
@@ -533,6 +550,15 @@ function matterJS() {
         
             let width = (len * 20) + 50 
             let height = 100
+
+            if(window.innerWidth < 1000){
+                height = 50
+                width = (len * 20) + 5 
+            }
+            else{
+                height = 100
+                width = (len * 20) + 50 
+            }
             drawing.width = width
             drawing.height = height
             let ctx = drawing.getContext("2d");
@@ -551,7 +577,12 @@ function matterJS() {
             ctx.fill();
 
             ctx.fillStyle = "#fff";
-            ctx.font = "32px Mulish";
+            if(window.innerWidth < 1000){
+                ctx.font = "20px Mulish";
+            }
+            else{
+                ctx.font = "32px Mulish";
+            }
             ctx.textAlign = "center";
             ctx.textBaseline = 'middle'
             ctx.fillText(text, width/2, height/2);
@@ -572,8 +603,30 @@ function matterJS() {
             spawnX = _width05
             spawnAxix = 1
         }
-        const newExp = Bodies.rectangle(spawnX, 100, (experty.name.length * 25) + 30 ,110, { 
-            chamfer: { radius: 50 },
+        let pillHeight = 110;
+        let pillWidth = (experty.name.length * 25) + 30
+        let chamferRad = 50
+        if(window.innerWidth < 1000){
+            pillHeight = 55;
+            pillWidth = (experty.name.length * 21) + 20
+            chamferRad = 20
+        }
+        else{
+            pillHeight = 110;
+            pillWidth = (experty.name.length * 25) + 30
+            chamferRad = 50
+        }
+        
+        // const newExp = Bodies.rectangle(spawnX, 100, pillWidth ,pillHeight, { 
+        //     // chamfer: { radius: 50 },
+        //     render:{
+        //         fillStyle : experty.color,
+                
+        //     }
+        // });
+        
+        const newExp = Bodies.rectangle(spawnX, 100, pillWidth ,pillHeight, { 
+            chamfer: { radius: chamferRad },
             render:{
                 fillStyle : experty.color,
                 sprite: {
@@ -678,6 +731,7 @@ const reviewSlideContainer = document.querySelector('.review-section-slides-inne
 
 let reviewSlides = ''
 
+{/* <div class="review-section-bg-slide"></div> */}
 reviews.forEach((review)=>{
     reviewSlides += `
     <div class="review-section-slide">
@@ -700,11 +754,12 @@ reviewSlideContainer.innerHTML = reviewSlides
 
 // -------------------------------------------------Reviews section review slideer ------------------------------------------------- 
 
-var slideDelay = 3;
+var slideDelay = 20;
 var slideDuration = 0.5;
 var wrap = true;
 
 var slides = document.querySelectorAll(".review-section-slide");
+var progressBar = document.querySelectorAll(".review-section-bg-slide");
 var prevButton = document.querySelector("#slider-prev-button");
 var nextButton = document.querySelector("#slider-next-button");
 var progressWrap = gsap.utils.wrap(0, 1);
@@ -736,6 +791,19 @@ var slideAnimation = gsap.to({
 }, {
    
 });
+
+var progressAnim = gsap.to('.review-section-bg-slide', {
+    ease : "power1.inOut",
+    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+    duration: slideDelay,
+    // onUpdate: updateProgress
+}); 
+var progressOpacityAnim = gsap.to('.review-section-bg-slide', {
+    ease : "power1.in",
+    opacity : 1,
+    duration: slideDuration + 0.5,
+    // onUpdate: updateProgress
+}); 
 var slideWidth = 0;
 var wrapWidth = 0;
 
@@ -757,15 +825,20 @@ window.addEventListener("resize", resize);
 
 prevButton.addEventListener("click", function() {
     animateSlides(1);
+    progressAnim.play(0)
+    progressOpacityAnim.play(0)
 });
 
 nextButton.addEventListener("click", function() {
     animateSlides(-1);
+    progressAnim.play(0)
+    progressOpacityAnim.play(0)
 });
 
 function updateDraggable() {
     timer.restart(true);
     slideAnimation.kill();
+    // progressAnim.kill();
     this.update();
 }
 
@@ -773,6 +846,8 @@ function animateSlides(direction) {
     
     timer.restart(true);
     slideAnimation.kill();
+    progressAnim.play(0);
+    progressOpacityAnim.play(0)
     var x = snapX(gsap.getProperty(proxy, "x") + direction * slideWidth);
     
     slideAnimation = gsap.to(proxy, {
@@ -781,6 +856,7 @@ function animateSlides(direction) {
         duration: slideDuration,
         onUpdate: updateProgress
     });  
+     
 }
 
 function autoPlay() {  
@@ -815,6 +891,8 @@ function resize() {
 
     animateSlides(0);
     slideAnimation.progress(1);
+    // progressAnim.progress(1);
+    
 }
 
 // -------------------------------------------------Values section bg img ------------------------------------------------- 
@@ -870,10 +948,6 @@ let yinyangAnim = gsap.to('#values-yinyang-img',3,
 
 let yinyangContainer = document.getElementsByClassName('values-yinyang-container')[0]
 
-yinyangContainer.addEventListener("mouseenter", () => {yinyangAnim.play(); yinayngShadowAnim.play()})
-yinyangContainer.addEventListener("mouseleave", () => {yinyangAnim.pause(); yinayngShadowAnim.pause()})
-
-
 let commitmentShadowAnim = gsap.to('#values-commitment-shadow-img',3,
     {
         paused : true,
@@ -895,14 +969,25 @@ let commitmentAnim = gsap.to('#values-commitment-img',3,
 
 let commitmentContainer = document.getElementsByClassName('values-commitment-container')[0]
 
-commitmentContainer.addEventListener("mouseenter", () => {commitmentAnim.play(); commitmentShadowAnim.play()})
-commitmentContainer.addEventListener("mouseleave", () => {commitmentAnim.pause(); commitmentShadowAnim.pause()})
+if(window.innerWidth > 1000){
 
+    yinyangContainer.addEventListener("mouseenter", () => {yinyangAnim.play(); yinayngShadowAnim.play()})
+    yinyangContainer.addEventListener("mouseleave", () => {yinyangAnim.pause(); yinayngShadowAnim.pause()})
+
+    commitmentContainer.addEventListener("mouseenter", () => {commitmentAnim.play(); commitmentShadowAnim.play()})
+    commitmentContainer.addEventListener("mouseleave", () => {commitmentAnim.pause(); commitmentShadowAnim.pause()})
+}
+else{
+
+    yinyangAnim.play(); yinayngShadowAnim.play()
+
+    commitmentAnim.play(); commitmentShadowAnim.play()
+}
 
 // -------------------------------------------------askus section bg angle ------------------------------------------------- 
 
 function calculateBGangle() {
-    console.log('here')
+
     let askusSection = document.getElementById('askus-section')
     
     let askusHeight = askusSection.offsetHeight
@@ -957,6 +1042,20 @@ gsap.to('#designprocess-img', 3,
 }
 )
 
+let designBtn = document.querySelector('.designprocess-btn')
+
+window.addEventListener('resize', designBtnText)
+designBtnText()
+function designBtnText() {
+    if(window.innerWidth < 1000){
+        designBtn.innerHTML = 'Ask Us Anything'
+    }
+    else{
+        designBtn.innerHTML = 'Ask Us Anything, Including Our Case Studies'
+    }
+
+}
+
 // -------------------------------------------------footer section invisible marker ------------------------------------------------- 
 
 gsap.to('.title-marker-footer-invisible-path',5.5,{
@@ -964,24 +1063,25 @@ gsap.to('.title-marker-footer-invisible-path',5.5,{
     ease : "expo.out",
     scrollTrigger: {
         trigger : '.footer-section-content-container',
-        start : "top center center",
+        start : "top 80%",
         end : "bottom center",
         toggleActions: "play none none none",
+        // markers: true
       }
 })
 
 // -------------------------------------------------body bg color change ------------------------------------------------- 
 
-gsap.to('body',.5,{
-    background : '#000',
-    ease : "expo.inOut",
-    scrollTrigger: {
-        trigger : '#experties-section',
-        start : "top 40%",
-        end : "bottom 60%",
-        toggleActions: "play reverse play reverse",
-      }
-})
+// gsap.to('body',.5,{
+//     background : '#000',
+//     ease : "expo.inOut",
+//     scrollTrigger: {
+//         trigger : '#experties-section',
+//         start : "top 40%",
+//         end : "bottom 60%",
+//         toggleActions: "play reverse play reverse",
+//       }
+// })
 
 gsap.to('body',.5,{
     background : '#000',
@@ -1015,36 +1115,22 @@ window.addEventListener('load', setTimeout(function(){
     var loaderTimeline = gsap.timeline()
     
 
-    loaderTimeline.to(' .loader-col',0.5,{
-        // height : 0,
-        stagger : 0.1,
-        ease : 'power1.in',
-        background : '#ECDE62',
-        color : '#000'
-    },'>1')
 
-    loaderTimeline.to('.loading-h1',1,{
+    loaderTimeline.to('.loader-overlaytext',1,{
         opacity : 0,
         stagger : 0.1,
         ease : 'power1.out',
-    },'>0.5')
+    },'>1')
 
     loaderTimeline.to(' .loader-col',1,{
         clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-        // clipPath: 'polygon(99% 0, 100% 0, 100% 100%, 99% 100%)',
-        // width:'1px',
         stagger : 0.1,
         ease : 'power1.out',
-    },'<0.5')
+    },'<0.75')
     
-    // loaderTimeline.to(' .loader-col',0.5,{
-    //     height : 0,
-    //     stagger : 0.2,
-    //     ease : 'power1.in'
-    // },'<1.5')
     loaderTimeline.to('#loader',0.1,{
         display : 'none'
     },'>0.01')
     
     // loader.style.display = 'none'
-}),5000)
+},1))

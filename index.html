@@ -21,21 +21,27 @@
 <body>
 <!-- ------------------------------------------ loading-section -------------------------------------------- -->
     <div id="loader">
-        <div class="loader-col"><h1 class="loading-h1">Loading...</h1></div>
+        <div class="loader-overlaytext">
+            <div class="loader-overlaytext-inner">
+                <h1 class="loading-h1">We are loading an experience...</h1>
+            </div>
+        </div>
+        <!-- <div class="loader-col"><h1 class="loading-h1">We</h1></div> -->
         <div class="loader-col"></div>
-        <div class="loader-col"><h1 class="loading-h1">Loading...</h1></div>
         <div class="loader-col"></div>
-        <div class="loader-col"><h1 class="loading-h1">Loading...</h1></div>
         <div class="loader-col"></div>
-        <div class="loader-col"><h1 class="loading-h1">Loading...</h1></div>
+        <div class="loader-col"></div>
+        <div class="loader-col"></div>
+        <div class="loader-col"></div>
+        <div class="loader-col"></div>
         <div class="loader-col"></div>
     </div>
 <!-- ------------------------------------------ contactus-section -------------------------------------------- -->
     <section id="contact-section">
-        <div class="contactus-section-color contactus-section-color-1"></div>
+        <!-- <div class="contactus-section-color contactus-section-color-1"></div>
         <div class="contactus-section-color contactus-section-color-2"></div>
         <div class="contactus-section-color contactus-section-color-3"></div>
-        <div class="contactus-section-color contactus-section-color-4"></div>
+        <div class="contactus-section-color contactus-section-color-4"></div> -->
         <div class="contactus-section-color contactus-section-color-5"></div>
         <div class="contactus-section-color contactus-section-color-bg"></div>
         <div id='contactus-section-content-container-main' class="contactus-section-content-container">
@@ -54,19 +60,19 @@
             <div class="contactus-main-form-img-conatainer">
                 <form  action="https://formsubmit.co/madhav1panchhiwala@gmail.com" method="post" class="contactus-form-container">
                     <div class="contactus-form-row">
-                        <label for="fullname">Full name</label>
-                        <input name="fullname" type="text"/>
+                        <label for="fullname">Full name <span>*</span></label>
+                        <input name="fullname" type="text" required/>
                     </div>
                     <div class="contactus-form-row">
-                        <label for="emailadd">Email address</label>
-                        <input name='emailadd' type="email"/>
+                        <label for="emailadd">Email address <span>*</span></label>
+                        <input name='emailadd' type="email" required/>
                     </div>
                     <div class="contactus-form-row contactus-form-select">
                         <svg id="select-dropdown" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.83335 7.83366L1.50002 3.50033C0.972242 2.97255 0.854465 2.36866 1.14669 1.68866C1.4378 1.00755 1.95835 0.666992 2.70835 0.666992H11.2917C12.0417 0.666992 12.5622 1.00755 12.8534 1.68866C13.1456 2.36866 13.0278 2.97255 12.5 3.50033L8.16669 7.83366C8.00002 8.00033 7.81946 8.12532 7.62502 8.20866C7.43058 8.29199 7.22224 8.33366 7.00002 8.33366C6.7778 8.33366 6.56946 8.29199 6.37502 8.20866C6.18058 8.12532 6.00002 8.00033 5.83335 7.83366Z" fill="white"/>
                         </svg>                            
-                        <label for="inquiry">Inquiry type</label>
-                        <select name="inquiry" id="inquiryType">
+                        <label for="inquiry">Inquiry type <span>*</span></label>
+                        <select name="inquiry" id="inquiryType" required>
                             <option value="design">Design</option>
                             <option value="development">Development</option>
                             <option value="consultation">Consultation</option>
@@ -78,7 +84,7 @@
                         <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </div>
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/underConstruction.html">
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5501/">
                     <div class="contactus-form-row">
                         <button class="contactus-submit-btn" type="submit">Send</button>
                     </div>
@@ -113,15 +119,15 @@
 <!-- ------------------------------------------ navbar-section -------------------------------------------- -->
     <nav class="navbar-container">
         <div>
-            <img src="./assets/images/logo/navLogo.png" alt="">
+            <img class="navbar-logo" src="./assets/images/logo/navLogo.png" alt="">
         </div>
         <button id="contactUsBtn" class="navbar-btn">
             Contact Us
         </button>
     </nav>
 <!-- ------------------------------------------ mouse-cursor -------------------------------------------- -->
-    <!-- <div class="mouse-cursor"></div>
-    <div class="mouse-cursor-follow"></div> -->
+    <div class="mouse-cursor"></div>
+    <div class="mouse-cursor-follow"></div>
 <!-- ------------------------------------------ Hero-Section -------------------------------------------- -->
     <main id="hero-section">
         <div class="hero-section-top-container">
@@ -168,9 +174,9 @@
             </div>
             <div class="video-container">
                 <div class="play-outer-circle">
-                    <div class="play-inner-circle list-typo">
+                    <a  href="https://www.youtube.com" target="_blank" class="play-inner-circle list-typo">
                         Play
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -178,110 +184,113 @@
 
 <!-- ------------------------------------------ Services-Section -------------------------------------------- -->
 
-    <section id="service-section">
-        
-        <div class="service-section-content-container">
-            <div  class="service-section-static-bg-container">
-                <div class="service-section-inner-bg-container">
-                    <h1>0</h1>
-                    <div class="service-section-static-img-container">
-                        <img id="service-section-static-img-1" src="assets/images/servicesSection/design.png" alt="">
-                    </div>
-                    <div class="service-section-static-img-container">
-                        <img id="service-section-static-img-2" src="assets/images/servicesSection/technology.png" alt="">
-                    </div>
-                    <div class="service-section-static-img-container">
-                        <img id="service-section-static-img-3" src="assets/images/servicesSection/business.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="service-single-type-sticky-container first-sticky-container">
-                <div class="service-single-type-container">
-                    <div class="service-single-type-bg-number">
-                       <h1>1</h1>
-                    </div>
-                    <div class="service-single-type-img-container">
-                    </div>
-                    <div class="service-single-type-content-container">
-                        <div class="service-single-type-title-container">
-                            <h1 class="title-typo">Design</h1>
-                            <svg id="title-marker-design" width="345" height="112" viewBox="0 0 345 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="title-marker-path title-marker-design-path" d="M188 86.5711C177.667 90.9045 149.5 96.5711 126 96.5711C94.8552 96.5711 49.5 91.0713 26 76.5711C13.5 71.5713 9 62.0711 9 53.0711C9 34.5713 62 20.7181 87 15.5711C121 8.57129 210.5 5.20825 243 15.5711C277.5 26.5713 301.5 35.0715 315 44.0713C328.5 53.0711 343.5 61.5713 332 71.5713C320.5 81.5713 197.5 101.222 164.5 102.071C131.5 102.921 55.4 104.571 37 96.5711" stroke="#ECDE62" stroke-width="17"/>
-                            </svg>
-                        </div>
-                        <ul class="service-single-type-subservice-container service-list-1">
-                            <li class="list-typo service-single-type-subservice">UI/UX Design</li>
-                            <li class="list-typo service-single-type-subservice">Product Design</li>
-                            <li class="list-typo service-single-type-subservice">Interaction Design</li>
-                            <li class="list-typo service-single-type-subservice">Design System</li>
-                            <li class="list-typo service-single-type-subservice">Animation</li>
-                            <li class="list-typo service-single-type-subservice">Illustrations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="service-single-type-sticky-container sticky-container-2">
-                <div class="service-single-type-container">
-                    <div class="service-single-type-bg-number">
-                        <h1>2</h1>
-                    </div>
-                    <div class="service-single-type-img-container">
-                    </div>
-                    <div class="service-single-type-content-container">
-                        <div class="service-single-type-title-container">
-                            <h1 class="title-typo">Technology</h1>
-                            <svg id="title-marker-technology" width="488" height="129" viewBox="0 0 488 129" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="title-marker-path title-marker-technology-path" d="M266.205 100.782C251.357 105.909 210.884 112.614 177.117 112.614C132.365 112.614 67.1943 106.106 33.4272 88.9498C15.466 83.034 9 71.7935 9 61.1447C9 39.2558 85.1555 22.8647 121.078 16.7749C169.932 8.49275 298.535 4.51363 345.234 16.7749C394.807 29.7903 429.292 39.8477 448.69 50.4962C468.089 61.1447 489.642 71.2021 473.118 83.034C456.593 94.866 279.855 118.116 232.437 119.121C185.02 120.127 75.672 122.079 49.2331 112.614" stroke="#ECDE62" stroke-width="17"/>
-                            </svg>
-                        </div>
-                        <ul class="service-single-type-subservice-container service-list-2">
-                            <li class="list-typo service-single-type-subservice">Front-End</li>
-                            <li class="list-typo service-single-type-subservice">Wordpress</li>
-                            <li class="list-typo service-single-type-subservice">Webflow</li>
-                            <li class="list-typo service-single-type-subservice">Hubspot</li>
-                            <li class="list-typo service-single-type-subservice">Web & Mobile Apps</li>
-                            <li class="list-typo service-single-type-subservice">Product Development</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="service-single-type-sticky-container last-sticky-container">
-                <div class="service-single-type-container">
-                    <div class="service-single-type-bg-number">
-                        <h1>3</h1>
-                    </div>
-                    <div class="service-single-type-img-container">
-                    </div>
-                    <div class="service-single-type-content-container">
-                        <div class="service-single-type-title-container">
-                            <h1 class="title-typo">Business</h1>
- 
-                            <svg  id="title-marker-business" width="408" height="133" viewBox="0 0 408 133" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="title-marker-path title-marker-business-path" d="M222.425 104.089C210.104 109.401 176.521 116.348 148.501 116.348C111.367 116.348 57.2889 109.606 29.2694 91.8309C14.3654 85.7019 9 74.0563 9 63.0238C9 40.3461 72.1929 23.3644 102.001 17.0551C142.54 8.47447 249.252 4.35195 288.003 17.0551C329.138 30.5395 357.753 40.9593 373.85 51.9916C389.946 63.0238 407.831 73.4436 394.119 85.7019C380.407 97.9603 233.752 122.049 194.406 123.09C155.059 124.131 64.3236 126.154 42.3849 116.348" stroke="#ECDE62" stroke-width="17"/>
-                            </svg>
-                        </div>
-                        <ul class="service-single-type-subservice-container service-list-3">
-                            <li class="list-typo service-single-type-subservice">Branding</li>
-                            <li class="list-typo service-single-type-subservice">Brand Guidelines</li>
-                            <li class="list-typo service-single-type-subservice">Pitch Decks</li>
-                            <li class="list-typo service-single-type-subservice">Digital Marketing</li>
-                            <li class="list-typo service-single-type-subservice">Content Writing</li>
-                            <li class="list-typo service-single-type-subservice">Business Analysis</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <section class="service-section-overflow-container">
 
-        </div>
+        <section id="service-section">
+            
+            <div class="service-section-content-container">
+                <div  class="service-section-static-bg-container">
+                    <div class="service-section-inner-bg-container">
+                        <h1>0</h1>
+                        <div class="service-section-static-img-container">
+                            <img id="service-section-static-img-1" src="assets/images/servicesSection/design.png" alt="">
+                        </div>
+                        <div class="service-section-static-img-container">
+                            <img id="service-section-static-img-2" src="assets/images/servicesSection/technology.png" alt="">
+                        </div>
+                        <div class="service-section-static-img-container">
+                            <img id="service-section-static-img-3" src="assets/images/servicesSection/business.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="service-single-type-sticky-container first-sticky-container">
+                    <div class="service-single-type-container">
+                        <div class="service-single-type-bg-number">
+                           <h1>1</h1>
+                        </div>
+                        <div class="service-single-type-img-container">
+                        </div>
+                        <div class="service-single-type-content-container">
+                            <div class="service-single-type-title-container">
+                                <h1 class="title-typo">Design</h1>
+                                <svg id="title-marker-design" viewBox="0 0 345 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="title-marker-path title-marker-design-path" d="M188 86.5711C177.667 90.9045 149.5 96.5711 126 96.5711C94.8552 96.5711 49.5 91.0713 26 76.5711C13.5 71.5713 9 62.0711 9 53.0711C9 34.5713 62 20.7181 87 15.5711C121 8.57129 210.5 5.20825 243 15.5711C277.5 26.5713 301.5 35.0715 315 44.0713C328.5 53.0711 343.5 61.5713 332 71.5713C320.5 81.5713 197.5 101.222 164.5 102.071C131.5 102.921 55.4 104.571 37 96.5711" stroke="#ECDE62" stroke-width="17"/>
+                                </svg>
+                            </div>
+                            <ul class="service-single-type-subservice-container service-list-1">
+                                <li class="list-typo service-single-type-subservice">UI/UX Design</li>
+                                <li class="list-typo service-single-type-subservice">Product Design</li>
+                                <li class="list-typo service-single-type-subservice">Interaction Design</li>
+                                <li class="list-typo service-single-type-subservice">Design System</li>
+                                <li class="list-typo service-single-type-subservice">Animation</li>
+                                <li class="list-typo service-single-type-subservice">Illustrations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-single-type-sticky-container sticky-container-2">
+                    <div class="service-single-type-container">
+                        <div class="service-single-type-bg-number">
+                            <h1>2</h1>
+                        </div>
+                        <div class="service-single-type-img-container">
+                        </div>
+                        <div class="service-single-type-content-container">
+                            <div class="service-single-type-title-container">
+                                <h1 class="title-typo">Technology</h1>
+                                <svg id="title-marker-technology" viewBox="0 0 488 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="title-marker-path title-marker-technology-path" d="M266.205 100.782C251.357 105.909 210.884 112.614 177.117 112.614C132.365 112.614 67.1943 106.106 33.4272 88.9498C15.466 83.034 9 71.7935 9 61.1447C9 39.2558 85.1555 22.8647 121.078 16.7749C169.932 8.49275 298.535 4.51363 345.234 16.7749C394.807 29.7903 429.292 39.8477 448.69 50.4962C468.089 61.1447 489.642 71.2021 473.118 83.034C456.593 94.866 279.855 118.116 232.437 119.121C185.02 120.127 75.672 122.079 49.2331 112.614" stroke="#ECDE62" stroke-width="17"/>
+                                </svg>
+                            </div>
+                            <ul class="service-single-type-subservice-container service-list-2">
+                                <li class="list-typo service-single-type-subservice">Front-End</li>
+                                <li class="list-typo service-single-type-subservice">Wordpress</li>
+                                <li class="list-typo service-single-type-subservice">Webflow</li>
+                                <li class="list-typo service-single-type-subservice">Hubspot</li>
+                                <li class="list-typo service-single-type-subservice">Web & Mobile Apps</li>
+                                <li class="list-typo service-single-type-subservice">Product Development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-single-type-sticky-container last-sticky-container">
+                    <div class="service-single-type-container">
+                        <div class="service-single-type-bg-number">
+                            <h1>3</h1>
+                        </div>
+                        <div class="service-single-type-img-container">
+                        </div>
+                        <div class="service-single-type-content-container">
+                            <div class="service-single-type-title-container">
+                                <h1 class="title-typo">Business</h1>
+     
+                                <svg  id="title-marker-business" viewBox="0 0 408 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="title-marker-path title-marker-business-path" d="M222.425 104.089C210.104 109.401 176.521 116.348 148.501 116.348C111.367 116.348 57.2889 109.606 29.2694 91.8309C14.3654 85.7019 9 74.0563 9 63.0238C9 40.3461 72.1929 23.3644 102.001 17.0551C142.54 8.47447 249.252 4.35195 288.003 17.0551C329.138 30.5395 357.753 40.9593 373.85 51.9916C389.946 63.0238 407.831 73.4436 394.119 85.7019C380.407 97.9603 233.752 122.049 194.406 123.09C155.059 124.131 64.3236 126.154 42.3849 116.348" stroke="#ECDE62" stroke-width="17"/>
+                                </svg>
+                            </div>
+                            <ul class="service-single-type-subservice-container service-list-3">
+                                <li class="list-typo service-single-type-subservice">Branding</li>
+                                <li class="list-typo service-single-type-subservice">Brand Guidelines</li>
+                                <li class="list-typo service-single-type-subservice">Pitch Decks</li>
+                                <li class="list-typo service-single-type-subservice">Digital Marketing</li>
+                                <li class="list-typo service-single-type-subservice">Content Writing</li>
+                                <li class="list-typo service-single-type-subservice">Business Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
     </section>
 
 <!-- ------------------------------------------ Experties-Section -------------------------------------------- -->
 
     <section id="experties-section">
         <h1 class="experties-main-title">Domain</h1>
-        <h3 class="experties-main-subtitle title-typo">Experts</h3>
+        <h3 class="experties-main-subtitle title-typo">Expertise</h3>
         <div id="headerEffectCanvas"></div> 
     </section>
 
@@ -305,23 +314,27 @@
         <div class="review-section-content-container">
             <div class="review-section-title-container">
                 <h1 class="title-typo">We are all about making 
-                   <br/>clients happy</h1>
-                    <svg id="title-marker-happy" width="265" height="124" viewBox="0 0 265 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <br/>clients <span class="title-typo review-section-happy">
+                    happy
+                    <svg id="title-marker-happy"  viewBox="0 0 265 124" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="title-marker-path title-marker-happy-path" d="M144.169 96.6474C136.366 101.544 115.096 107.946 97.3508 107.946C73.8323 107.946 39.583 101.732 21.8373 85.3485C12.3981 79.6992 9 68.9649 9 58.7959C9 37.8929 49.0222 22.2402 67.9005 16.4247C93.5751 8.5156 161.16 4.71571 185.702 16.4247C211.754 28.8538 229.877 38.4581 240.071 48.627C250.266 58.7959 261.593 68.4002 252.909 79.6992C244.225 90.9981 151.343 113.201 126.424 114.161C101.504 115.121 44.0383 116.986 30.1438 107.946" stroke="#ECDE62" stroke-width="17"/>
                     </svg>
+                </span></h1>
+                    
             </div>
 
             <div class="review-section-reviews-container">
                 <div class="review-section-quotes-container">
-                    <svg width="316" height="201" viewBox="0 0 316 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 316 201" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M71.4938 0.0041199C32.0713 0.0041199 0 32.0812 0 71.5012C0 107.423 26.4598 137.557 61.8414 142.319C65.7055 171.575 41.2855 196.461 41.031 196.715C40.2942 197.452 40.143 198.601 40.6739 199.508C41.0922 200.229 41.8579 200.65 42.6655 200.65C42.8714 200.65 43.0805 200.621 43.2832 200.566C146.388 171.925 143.134 74.77 142.986 71.4425C142.954 32.0489 110.896 0.00390625 71.4925 0.00390625L71.4938 0.0041199ZM49.6028 193.834C57.2859 183.999 70.1232 163.452 66.1367 139.863C65.9662 138.843 65.1362 138.067 64.113 137.955C30.1918 134.226 4.6141 105.662 4.6141 71.5025C4.6141 34.6219 34.6164 4.62612 71.4938 4.62612C108.374 4.62612 138.377 34.6219 138.377 71.5025C138.377 71.5475 138.377 71.5926 138.38 71.6376C138.435 72.5707 142.649 163.277 49.5986 193.835L49.6028 193.834Z" fill="#ECDE62"/>
                         <path d="M315.962 71.4386C315.93 32.0417 283.871 0 244.468 0C205.046 0 172.974 32.0771 172.974 71.4971C172.974 107.419 199.434 137.553 234.816 142.315C238.68 171.571 214.26 196.456 214.005 196.711C213.268 197.448 213.117 198.596 213.648 199.504C214.066 200.224 214.832 200.646 215.64 200.646C215.846 200.646 216.055 200.617 216.257 200.562C319.362 171.921 316.109 74.7659 315.96 71.4384L315.962 71.4386ZM222.576 193.825C230.259 183.99 243.097 163.443 239.11 139.854C238.94 138.834 238.11 138.058 237.086 137.946C203.165 134.217 177.587 105.653 177.587 71.4934C177.587 34.6128 207.59 4.61706 244.467 4.61706C281.348 4.61706 311.35 34.6128 311.35 71.4934C311.35 71.5385 311.35 71.5835 311.353 71.6286C311.408 72.5616 315.623 163.268 222.572 193.825L222.576 193.825Z" fill="#ECDE62"/>
                     </svg>
                     
                 </div>
                 <div class="review-section-slides-container">
+                    <div class="review-section-bg-slide"></div>
+                    <div class="review-section-bg-slide-cover"></div>
                     <div class="review-section-slides-inner">
-                        
                     </div>
                 </div>
                 <div class="slider-button-container">
@@ -349,21 +362,20 @@
         <div class="values-section-content-container">
             <div class="values-section-static-bg-container">
                 <h1 class="values-bg-values">Valules</h1>
-                <div id="value-section-static-img-1" class="value-section-static-bg-img">
-                    <div class="values-single-value-img-container">
-                        <img id="values-yinyang-img" src="assets/images/valueSection/yinyang.png" alt="yim-yang">
+                <div class="value-section-static-img-container">
+                    <div id="value-section-static-img-1" class="value-section-static-bg-img">
+                        <div class="values-single-value-img-container">
+                            <img id="values-yinyang-img" src="assets/images/valueSection/yinyang.png" alt="yim-yang">
+                            <img id="values-yinyang-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
+                        </div>
                     </div>
-                    <img id="values-yinyang-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
-                </div>
-                <div id="value-section-static-img-2" class="value-section-static-bg-img">
-                    <div class="values-single-value-img-container values-commitment-img-container">
-                        <img id="values-commitment-img" src="assets/images/valueSection/commitment.png" alt="yim-yang">
+                    <div id="value-section-static-img-2" class="value-section-static-bg-img">
+                        <div class="values-single-value-img-container values-commitment-img-container">
+                            <img id="values-commitment-img" src="assets/images/valueSection/commitment.png" alt="yim-yang">
+                            <img id="values-commitment-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
+                        </div>
                     </div>
-                    <img id="values-commitment-shadow-img" src="assets/images/valueSection/shadow.png" alt="yim-yang">
                 </div>
-                <!-- <img id="service-section-static-img-1" src="assets/images/servicesSection/design.png" alt=""> -->
-                <!-- <img id="service-section-static-img-2" src="assets/images/servicesSection/technology.png" alt=""> -->
-                <!-- <img id="service-section-static-img-3" src="assets/images/servicesSection/business.png" alt=""> -->
             </div>
             <div class="values-single-type-sticky-container values-sticky-container-1">
                 <div class="values-single-value-main-container values-yinyang-container">
@@ -400,15 +412,15 @@
 
                 <div class="askus-section-bottom-container">
                     <button id="contactUsBtn">Ask Us Anything</button>
-                    <div class="askus-section-bottom-abs-container">
-                            <svg id="arrow-marker-askus" width="157" height="69" viewBox="0 0 157 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="title-marker-path arrow-marker-askus-path" d="M154 37.2195C152 31.3862 143.7 17.9195 126.5 10.7195C105 1.7195 91.174 9.88169 86.5 14.7195C81.8261 19.5573 74 35.5 81.5 53.5C91.5 71.5 108 49.718 108 32.2188C108 14.7195 85 3.21875 78.5 3.21875C72 3.21875 49.5 -0.28125 31.5 20.7188C17.1 37.5187 9.83333 58.0521 8 66.2188" stroke="black" stroke-width="5"/>
-                                <path class="title-marker-path arrow-marker-askus-pointer-path" d="M3 39C3.66667 47.1667 5.2 64 6 66C6.8 68 27 60.1667 37 56" stroke="black" stroke-width="5"/>
-                            </svg>
-                            <div class="askus-section-bottom-para-container">
-                                <div  class="askus-section-bottom-para">Don't hesitate to ask us anything! No question is silly </div> 
-                            </div>
-                    </div>
+                </div>
+                <div class="askus-section-bottom-abs-container">
+                        <svg id="arrow-marker-askus" width="157" height="69" viewBox="0 0 157 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="title-marker-path arrow-marker-askus-path" d="M154 37.2195C152 31.3862 143.7 17.9195 126.5 10.7195C105 1.7195 91.174 9.88169 86.5 14.7195C81.8261 19.5573 74 35.5 81.5 53.5C91.5 71.5 108 49.718 108 32.2188C108 14.7195 85 3.21875 78.5 3.21875C72 3.21875 49.5 -0.28125 31.5 20.7188C17.1 37.5187 9.83333 58.0521 8 66.2188" stroke="black" stroke-width="5"/>
+                            <path class="title-marker-path arrow-marker-askus-pointer-path" d="M3 39C3.66667 47.1667 5.2 64 6 66C6.8 68 27 60.1667 37 56" stroke="black" stroke-width="5"/>
+                        </svg>
+                        <div class="askus-section-bottom-para-container">
+                            <div  class="askus-section-bottom-para">Don't hesitate to ask us anything! No question is silly </div> 
+                        </div>
                 </div>
             </div>
         </div>
@@ -426,12 +438,12 @@
                     <p class="para-typo designprocess-wait-what">Wait! Whaaaaat!</p>
                     <p class="para-typo">We haven't shared it, have we? We want to share them personally to you as per your requirements. So ping us and your wish will be our command.</p>
                 </div>
-                <div>
+                <div class="designprocess-img-container">
                     <img id="designprocess-img" src="assets/images/designProcessSection/case-study.png" alt="">
                 </div>
             </div>
             <div class="designprocess-section-bottom-container">
-                <button id="contactUsBtn">Ask Us Anything, Including Our Case Studies</button>
+                <button id="contactUsBtn" class="designprocess-btn">Ask Us Anything, Including Our Case Studies</button>
             </div>
         </div>
     </section>
@@ -465,10 +477,11 @@
         <div class="footer-section-content-container">
             <div class="footer-section-top-container">
                 
-                <h1 class="title-typo footer-title"><svg id="title-marker-footer-invisible" width="345" height="112" viewBox="0 0 345 112" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="title-marker-path title-marker-footer-invisible-path" d="M188 86.5711C177.667 90.9045 149.5 96.5711 126 96.5711C94.8552 96.5711 49.5 91.0713 26 76.5711C13.5 71.5713 9 62.0711 9 53.0711C9 34.5713 62 20.7181 87 15.5711C121 8.57129 210.5 5.20825 243 15.5711C277.5 26.5713 301.5 35.0715 315 44.0713C328.5 53.0711 343.5 61.5713 332 71.5713C320.5 81.5713 197.5 101.222 164.5 102.071C131.5 102.921 55.4 104.571 37 96.5711" stroke="#ECDE62" stroke-width="17"/>
-                </svg>Creating invisible <br/> experiences</h1>
-                <p>Because good design is invisible!</p>
+                <h1 class="title-typo footer-title">Creating <span class="title-typo footer-title-invisible-span"><svg id="title-marker-footer-invisible" viewBox="0 0 345 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="title-marker-path title-marker-footer-invisible-path" d="M188 86.5711C177.667 90.9045 149.5 96.5711 126 96.5711C94.8552 96.5711 49.5 91.0713 26 76.5711C13.5 71.5713 9 62.0711 9 53.0711C9 34.5713 62 20.7181 87 15.5711C121 8.57129 210.5 5.20825 243 15.5711C277.5 26.5713 301.5 35.0715 315 44.0713C328.5 53.0711 343.5 61.5713 332 71.5713C320.5 81.5713 197.5 101.222 164.5 102.071C131.5 102.921 55.4 104.571 37 96.5711" stroke="#ECDE62" stroke-width="17"/>
+                    </svg>
+                    invisible</span> <br/> experiences</h1>
+                <p class="para-typo">Because good design is invisible!</p>
                 <button id="contactUsBtn">Contact Us</button>
             </div>
             <div class="footer-section-bottom-container">
