@@ -58,7 +58,7 @@ button, a, input, textarea, label, select, option{
     line-height: 40.8px;
 }
 
-.mouse-cursor {
+.mouse-cursor-custom {
     position: fixed;
     background-color: var(--color-prim);
     width: 20px;
@@ -66,12 +66,15 @@ button, a, input, textarea, label, select, option{
     left:-5px;
     top:0px;
     border-radius: 100%;
-    z-index: 1;
-    z-index: 10001;
+    z-index: 110;
+    /* z-index: 10001; */
     transform: scale(1);
+    /* max-height: 100%; */
+    /* box-shadow: 0 0 0 5px #ECDE6233; */
+    /* box-sizing: content-box; */
 }
 
-.mouse-cursor-follow {
+.mouse-cursor-custom-follow {
    position: fixed;
     background-color: #ECDE6233;
     width: 30px;
@@ -79,11 +82,12 @@ button, a, input, textarea, label, select, option{
     left:-10px;
     top:-5px;
     border-radius: 100%;
-    z-index: 1;
+    z-index: 110;
     user-select: none;
     pointer-events: none;
     z-index: 10000;
     transform: scale(1);
+    /* max-height: 100%; */
 }
 
 @media only screen and (max-width: 1000px){
@@ -111,7 +115,7 @@ button, a, input, textarea, label, select, option{
         line-height: 34px;
     }
 
-    .mouse-cursor, .mouse-cursor-follow{
+    .mouse-cursor-custom, .mouse-cursor-custom-follow{
         display: none;
     }
 }
@@ -178,13 +182,14 @@ button, a, input, textarea, label, select, option{
     /* background: url('/assets/images/contactUsSection/menu-bg.jpg'); */
     background-size:cover ;
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     z-index: 101;
     clip-path: circle(0% at 100% 0);
     overflow-y: scroll;
     top: 0px;
     left: 0px;
     bottom: 1px;
+    height: calc(100% - 0px);
 }
 
 .contactus-section-color{
@@ -224,6 +229,7 @@ button, a, input, textarea, label, select, option{
     clip-path: circle(0% at 100% 0);
     background: var(--color-black);
     color: var(--color-white);
+    z-index: 110;
 }
 
 #contactCloseBtn{
@@ -1091,8 +1097,9 @@ p.cursor::after {
 #unboxing-section{
     display: flex;
     justify-content: center;
-    margin: 120px 0;
+    padding: 120px 0;
     height: 658px;
+    background: #fff;
 }
 
 .unboxing-section-content-container{
@@ -1108,13 +1115,14 @@ p.cursor::after {
 .unboxing-section-title{
     width: 100%;
     white-space: nowrap;
+    z-index: 20;
 }
 .unboxing-section-loading-blob-container{
     position: absolute;
     right: 10%;
     display: flex;
     column-gap: 3rem;
-    z-index: -10;
+    z-index: 10;
 }
 
 .unboxing-section-loading-blob-container div{
@@ -1465,10 +1473,17 @@ p.cursor::after {
     margin-top: -3.5rem;
 }
 
+#value-section-static-img-1{
+    right: 3rem;
+}
+
+#values-yinyang-img{
+    width: 360px;
+}
 #values-yinyang-shadow-img{
     position: absolute;
     bottom: -8rem;
-    right: 0;
+    right: -2rem;
     opacity: 0.2;
 }
 
@@ -1517,6 +1532,14 @@ p.cursor::after {
         transform: translateX(-50%);
         /* margin-left: -30%; */
         opacity: 0.2;
+    }
+
+    #value-section-static-img-1{
+        right: auto;
+    }
+    
+    #values-yinyang-img{
+        width: 100%;
     }
     .values-commitment-img-container{
         top: 10rem;

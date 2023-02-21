@@ -6,43 +6,69 @@ import { reviews } from "../data/reviews.js"
 // gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Draggable);
 
-
+let contactUsOpen = false
 // -------------------------------------------------mouse pointer change ------------------------------------------------- 
-var $circle = $('.mouse-cursor'),
-    $follow = $('.mouse-cursor-follow');
+// var $circle = $('.mouse-cursor-custom'),
+//     $follow = $('.mouse-cursor-custom-follow');
 
 function moveCircle(e) {
-  TweenLite.to($circle, 0.3, {
-      x: e.clientX,
-      y: e.clientY
-  });
-  TweenLite.to($follow, 0.7, {
-      x: e.clientX,
-      y: e.clientY
-  });  
+    if(contactUsOpen){
+        document.querySelector('.mouse-cursor-custom-follow').style.boxShadow = '0 0 0 5px #ECDE6233'
+        document.querySelector('.mouse-cursor-custom-follow').style.height = '20px'
+        document.querySelector('.mouse-cursor-custom-follow').style.width = '20px'
+        document.querySelector('.mouse-cursor-custom-follow').style.background = '#ECDE6233'
+
+        gsap.to('.mouse-cursor-custom', 0.3, {
+            x: e.clientX ,
+            y: e.clientY,
+            scale : 0
+        });
+        gsap.to('.mouse-cursor-custom-follow', 0.7, {
+            x: e.clientX,
+            y: e.clientY,
+            // scale : 1
+        });  
+    }
+    else{
+        document.querySelector('.mouse-cursor-custom-follow').style.boxShadow = ''
+        document.querySelector('.mouse-cursor-custom-follow').style.height = '30px'
+        document.querySelector('.mouse-cursor-custom-follow').style.width = '30px'
+        document.querySelector('.mouse-cursor-custom-follow').style.background = ''
+        gsap.to('.mouse-cursor-custom', 0.3, {
+            x: e.clientX ,
+            y: e.clientY
+        });
+        gsap.to('.mouse-cursor-custom-follow', 0.7, {
+            x: e.clientX,
+            y: e.clientY
+        });  
+    }
 }
 
 function hoverFunc(e) {
-  TweenLite.to($circle, 0.3, {
-    opacity: 1,
-    scale: 0
-  });
-  TweenLite.to($follow, 0.3, {
-      scale: 3
-  });  
+    gsap.to('.mouse-cursor-custom', 0.3, {
+        opacity: 1,
+        scale: 0
+    });
+    gsap.to('.mouse-cursor-custom-follow', 0.3, {
+        scale: 3,
+        // background : '#ECDE62'
+    });  
 }
 
 function unhoverFunc(e) {
-  TweenLite.to($circle, 0.3, {
+  gsap.to('.mouse-cursor-custom', 0.3, {
     opacity: 1,
     scale: 1
   });
-  TweenLite.to($follow, 0.3, {
-      scale: 1
+  gsap.to('.mouse-cursor-custom-follow', 0.3, {
+      scale: 1,
+    //   background : '#ECDE6233'
   });  
 }
 
-$(window).on('mousemove', moveCircle);
+// $(window).on('mousemove', moveCircle);
+window.addEventListener('mousemove', moveCircle);
 
 $("a , button, input, textarea, label, select, option").hover(hoverFunc, unhoverFunc);
 // $("button").hover(hoverFunc, unhoverFunc);
@@ -64,17 +90,17 @@ window.addEventListener('scroll', navColor)
 // -------------------------------------------------contact us menu animation ------------------------------------------------- 
 
 
-// let selectInputInquiryType = document.querySelector('#inquiryType')
-// let selectDropdown = document.querySelector('#select-dropdown')
-
-// selectInputInquiryType.addEventListener('focus',()=>{
-//     selectDropdown.style = 'transform: rotate(180deg)'
-// })
-// selectInputInquiryType.addEventListener('blur',()=>{
-//     selectDropdown.style = 'transform: rotate(0deg)'
+// gsap.to('#contactus-section-content-container-main',{
+//     y: 10,
+//     scrollTrigger : {
+//         trigger : '#contactus-section-content-container-main',
+//         scrub : 1
+//     }
 // })
 
 let contactBtns = document.querySelectorAll("#contactUsBtn")
+
+
 
 // .addEventListener("click", handleOpenMenu)
 
@@ -89,6 +115,7 @@ function handleOpenMenu() {
     var menuOpenTimeline = gsap.timeline()
     menuOpenTimeline.play()
     console.log('click')
+    contactUsOpen = true
 
     let element = document.querySelector('.contactus-form-container')
 
@@ -102,26 +129,6 @@ function handleOpenMenu() {
         clipPath : 'circle(141.4% at 100% 0)',
     })
     
-    // menuOpenTimeline.to('.contactus-section-color-1', {
-    //     duration : 0.8,
-    //     ease : 'power1.out',
-    //     clipPath : 'circle(141.4% at 100% 0)',
-    // },'<0.1')
-    // menuOpenTimeline.to('.contactus-section-color-2', {
-    //     duration : 0.8,
-    //     ease : 'power1.out',
-    //     clipPath : 'circle(141.4% at 100% 0)',
-    // },'<0.1')
-    // menuOpenTimeline.to('.contactus-section-color-3', {
-    //     duration : 0.8,
-    //     ease : 'power1.out',
-    //     clipPath : 'circle(141.4% at 100% 0)',
-    // },'<0.1')
-    // menuOpenTimeline.to('.contactus-section-color-4', {
-    //     duration : 0.8,
-    //     ease : 'power1.out',
-    //     clipPath : 'circle(141.4% at 100% 0)',
-    // },'<0.1')
     menuOpenTimeline.to('.contactus-section-color-5', {
         duration : 0.8,
         ease : 'power1.out',
@@ -164,7 +171,7 @@ function handleCloseMenu(){
     console.log('click')
     
     let element = document.querySelector('.contactus-form-container')
-
+    contactUsOpen = false
     
     const formInput = element.querySelectorAll('input , select , textarea , label, svg')
     
@@ -202,26 +209,7 @@ function handleCloseMenu(){
         ease : 'power1.in',
         clipPath : 'circle(0% at 100% 0)',
     },'<0.1')
-    // menuCloseTimeline.to('.contactus-section-color-4', {
-    //     duration : 0.8,
-    //     ease : 'power1.in',
-    //     clipPath : 'circle(0% at 100% 0)',
-    // },'<0.1')
-    // menuCloseTimeline.to('.contactus-section-color-3', {
-    //     duration : 0.8,
-    //     ease : 'power1.in',
-    //     clipPath : 'circle(0% at 100% 0)',
-    // },'<0.1')
-    // menuCloseTimeline.to('.contactus-section-color-2', {
-    //     duration : 0.8,
-    //     ease : 'power1.in',
-    //     clipPath : 'circle(0% at 100% 0)',
-    // },'<0.1')
-    // menuCloseTimeline.to('.contactus-section-color-1', {
-    //     duration : 0.8,
-    //     ease : 'power1.in',
-    //     clipPath : 'circle(0% at 100% 0)',
-    // },'<0.1')
+
     menuCloseTimeline.to('#contact-section', {
         duration : 0.8,
         ease : 'power1.inOut',
@@ -343,31 +331,55 @@ gsap.utils.toArray('.counter-value').forEach(function (el) {
 });
 
 // -------------------------------------------------Achievement section play button animation------------------------------------------------- 
-let mm = gsap.matchMedia();
+// let mm = gsap.matchMedia();
 
-mm.add("(min-width: 1000px)", () => {
-  // desktop setup code here...
-  gsap.from('.play-outer-circle',2,{
-    width : "220px",
-    height : "220px",
-    ease : 'ease.out',
-    yoyo : true,
-    repeat : -1
-})
-});
+let playBtnAnim;
+const playInnerCircle = document.querySelector('.play-inner-circle')
+// mm.add("(min-width: 1000px)", () => {
+//   // desktop setup code here...
+//   gsap.from('.play-outer-circle',2,{
+//     width : "220px",
+//     height : "220px",
+//     ease : 'ease.out',
+//     yoyo : true,
+//     repeat : -1
+// })
+// });
 
-mm.add("(max-width: 999px)", () => {
-  // mobile setup code here...
-  gsap.from('.play-outer-circle',2,{
-    width : "120px",
-    height : "120px",
-    ease : 'ease.out',
-    yoyo : true,
-    repeat : -1
-})
-});
+// mm.add("(max-width: 999px)", () => {
+//   // mobile setup code here...
+//   gsap.from('.play-outer-circle',2,{
+//     width : "120px",
+//     height : "120px",
+//     ease : 'ease.out',
+//     yoyo : true,
+//     repeat : -1
+// })
+// });
 
+if(window.innerWidth > 1000){
 
+    playBtnAnim = gsap.from('.play-outer-circle',2,{
+        width : "220px",
+        height : "220px",
+        ease : 'ease.out',
+        yoyo : true,
+        repeat : -1
+    })
+
+    playInnerCircle.addEventListener("mouseenter", () => {playBtnAnim.pause()})
+    playInnerCircle.addEventListener("mouseleave", () => {playBtnAnim.play()})
+}
+else{
+    playBtnAnim = gsap.from('.play-outer-circle',2,{
+        width : "120px",
+        height : "120px",
+        ease : 'ease.out',
+        yoyo : true,
+        repeat : -1
+    })
+    playBtnAnim.play()
+}
 
 // -------------------------------------------------Service section bg image ------------------------------------------------- 
 
@@ -447,6 +459,14 @@ gsap.to('.title-marker-business-path',3.5,{
 
 const list1 = gsap.utils.selector('.service-list-1')
 
+let listEndTrigger = "bottom center"
+let listToggleActions = "play none play reverse" 
+
+if(window.innerWidth < 1000){
+    listEndTrigger = "bottom end"
+    listToggleActions = "play reverse play reverse" 
+}
+
 gsap.to(list1('.service-single-type-subservice'),0.5,{
     x: '100px',
     opacity : 1,
@@ -454,8 +474,8 @@ gsap.to(list1('.service-single-type-subservice'),0.5,{
     scrollTrigger: {
         trigger : '.service-list-1',
         start : "top center center",
-        end : "bottom center",
-        toggleActions: "play none play reverse",
+        end : listEndTrigger,
+        toggleActions: listToggleActions,
         // markers: true
       }
 })
@@ -469,8 +489,8 @@ gsap.to(list2('.service-single-type-subservice'),0.5,{
     scrollTrigger: {
         trigger : '.service-list-2',
         start : "top center center",
-        end : "bottom center",
-        toggleActions: "play none play reverse",
+        end : listEndTrigger,
+        toggleActions: listToggleActions,
       }
 })
 
@@ -483,8 +503,8 @@ gsap.to(list3('.service-single-type-subservice'),0.5,{
     scrollTrigger: {
         trigger : '.service-list-3',
         start : "top center center",
-        end : "bottom center",
-        toggleActions: "play none play reverse",
+        end : listEndTrigger,
+        toggleActions: listToggleActions,
       }
 })
 
@@ -969,20 +989,20 @@ let commitmentAnim = gsap.to('#values-commitment-img',3,
 
 let commitmentContainer = document.getElementsByClassName('values-commitment-container')[0]
 
-if(window.innerWidth > 1000){
+// if(window.innerWidth > 1000){
 
-    yinyangContainer.addEventListener("mouseenter", () => {yinyangAnim.play(); yinayngShadowAnim.play()})
-    yinyangContainer.addEventListener("mouseleave", () => {yinyangAnim.pause(); yinayngShadowAnim.pause()})
+//     yinyangContainer.addEventListener("mouseenter", () => {yinyangAnim.play(); yinayngShadowAnim.play()})
+//     yinyangContainer.addEventListener("mouseleave", () => {yinyangAnim.pause(); yinayngShadowAnim.pause()})
 
-    commitmentContainer.addEventListener("mouseenter", () => {commitmentAnim.play(); commitmentShadowAnim.play()})
-    commitmentContainer.addEventListener("mouseleave", () => {commitmentAnim.pause(); commitmentShadowAnim.pause()})
-}
-else{
+//     commitmentContainer.addEventListener("mouseenter", () => {commitmentAnim.play(); commitmentShadowAnim.play()})
+//     commitmentContainer.addEventListener("mouseleave", () => {commitmentAnim.pause(); commitmentShadowAnim.pause()})
+// }
+// else{
 
     yinyangAnim.play(); yinayngShadowAnim.play()
 
     commitmentAnim.play(); commitmentShadowAnim.play()
-}
+// }
 
 // -------------------------------------------------askus section bg angle ------------------------------------------------- 
 
@@ -1070,20 +1090,50 @@ gsap.to('.title-marker-footer-invisible-path',5.5,{
       }
 })
 
+
+let footerLinks = document.querySelectorAll('.footer-link')
+
+footerLinks.forEach((footerLink)=>{
+    function linkMouseOver(){
+        footerLink.childNodes.forEach((node)=>{
+            if(node.tagName === "svg"){
+                node.childNodes.forEach((path)=>{
+                    if(path.tagName === 'path'){
+                        path.setAttribute("fill", "#ECDE62")
+                    }
+                })
+            }
+        })
+    }
+    function linkMouseOut(){
+        footerLink.childNodes.forEach((node)=>{
+            if(node.tagName === "svg"){
+                node.childNodes.forEach((path)=>{
+                    if(path.tagName === 'path'){
+                        path.setAttribute("fill", "white")
+                    }
+                })
+            }
+        })
+    }
+    footerLink.addEventListener('mouseenter', linkMouseOver)
+    footerLink.addEventListener('mouseleave', linkMouseOut)
+})
+
 // -------------------------------------------------body bg color change ------------------------------------------------- 
 
-// gsap.to('body',.5,{
-//     background : '#000',
-//     ease : "expo.inOut",
-//     scrollTrigger: {
-//         trigger : '#experties-section',
-//         start : "top 40%",
-//         end : "bottom 60%",
-//         toggleActions: "play reverse play reverse",
-//       }
-// })
-
 gsap.to('body',.5,{
+    background : '#000',
+    ease : "expo.inOut",
+    scrollTrigger: {
+        trigger : '#experties-section',
+        start : "top 40%",
+        end : "bottom 60%",
+        toggleActions: "play reverse play reverse",
+      }
+})
+
+gsap.to('body, #unboxing-section ',.5,{
     background : '#000',
     ease : "expo.inOut",
     scrollTrigger: {
