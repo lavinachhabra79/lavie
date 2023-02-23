@@ -6,6 +6,66 @@ import { reviews } from "../data/reviews.js"
 // gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Draggable);
 
+
+
+const form = document.getElementById('contactus-form');
+form.addEventListener('submit', (event) => {
+
+    event.preventDefault()
+    let sendBtn = document.querySelector('.contactus-submit-btn')
+    const formData = new FormData(form);
+
+    const value = Object.fromEntries(formData.entries())
+    console.log(value)
+
+    sendBtn.textContent = 'Sending...'
+    sendBtn.style.background = 'none'
+    sendBtn.style.border = '3px solid var(--color-white)'
+    sendBtn.style.color = 'white'
+
+    fetch("https://formsubmit.co/ajax/madhav1panchhiwala@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(value)
+        
+    })
+    .then(response => response.json())
+    .then(data =>{
+        console.log(data)
+        // confirmation.textContent = "we will reach out soon";
+        confirmation.style.display = 'flex';
+        form.style.display = 'none'
+    } 
+    )
+    .catch(error => console.log(error));
+
+    return false
+})
+
+
+// function formconfirm(){
+    
+// fetch("https://formsubmit.co/ajax/madhav1panchhiwala@gmail.com", {
+//     method: "POST",
+//     headers: { 
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//     },
+//     body: JSON.stringify({
+//         name: "FormSubmit",
+//         message: "I'm from Devro LABS"
+//     })
+//     })
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.log(error));
+
+//     return false;
+// }
+
 let contactUsOpen = false
 // -------------------------------------------------mouse pointer change ------------------------------------------------- 
 // var $circle = $('.mouse-cursor-custom'),

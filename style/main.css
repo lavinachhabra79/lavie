@@ -177,6 +177,16 @@ button, a, input, textarea, label, select, option{
 }
 /*-------------------------------------------- contactus --------------------------------------------*/
 
+#confirmation {
+    width: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* background-color: green; */
+    color: white;
+  }
+
 #contact-section{
     position: fixed;
     /* background: url('/assets/images/contactUsSection/menu-bg.jpg'); */
@@ -260,6 +270,7 @@ button, a, input, textarea, label, select, option{
     display: flex;
     flex-direction: column;
     position: relative;
+    /* display: none; */
 }
 
 .contactus-form-container label,

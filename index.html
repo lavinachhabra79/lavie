@@ -61,7 +61,7 @@
                 <h1 class="title-typo contactus-title">Ask us anything!</h1>
             </div>
             <div class="contactus-main-form-img-conatainer">
-                <form  action="https://formsubmit.co/madhav1panchhiwala@gmail.com" method="post" class="contactus-form-container">
+                <form id="contactus-form" method="POST" class="contactus-form-container">
                     <div class="contactus-form-row">
                         <label for="fullname">Full name <span>*</span></label>
                         <input name="fullname" type="text" required/>
@@ -87,11 +87,17 @@
                         <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </div>
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="http://127.0.0.1:5501/">
+                    <input type="hidden" name="_template" value="table">
                     <div class="contactus-form-row">
                         <button class="contactus-submit-btn" type="submit">Send</button>
                     </div>
                 </form>
+                <div id="confirmation">
+                    <h1 class="title-typo">
+                        Thank you for connecting with us we will reach out soon
+                    </h1>
+                        
+                </div>
                 <div class="contactus-form-img-right-container">
                     <!-- <div> -->
                         <h3 class="contactus-right-para">Or just say, Whaaaat's up!</h3>
