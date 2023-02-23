@@ -181,8 +181,8 @@ button, a, input, textarea, label, select, option{
     width: 50%;
     display: none;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
+    align-items: start;
+    /* padding: 10px; */
     /* background-color: green; */
     color: white;
   }
@@ -312,7 +312,7 @@ option{
     color: var(--color-white);
 }
 
-.contactus-form-select svg{
+#select-dropdown{
     position: absolute;
     right: 1rem;
     top: 40%;
@@ -337,6 +337,19 @@ option{
     overflow: hidden;
     position: relative;
     padding-bottom: 48px;
+}
+
+.contact-single-error-container{
+    display: none;
+    column-gap: 6px;
+    margin-top: 6px;
+}
+
+.contact-single-error-container p{
+    font-weight: 500;        
+    size: 16px;
+    line-height: 20.08px;
+    color: #fff8;
 }
 
 .contactus-submit-btn{
@@ -396,6 +409,11 @@ option{
         flex-wrap: wrap;
         justify-content: space-between;
     }   
+    #confirmation {
+        width: 100%;
+        height: 100%;
+        min-height: 50vh;
+    }
     .contactus-form-container{
         width: 100%;
     }
@@ -1008,7 +1026,7 @@ p.cursor::after {
     }
     .service-single-type-content-container{
         position: absolute;
-        top: 15rem;
+        top: 12rem;
         width: 100%;
     }
     .service-single-type-subservice-container{
@@ -1083,21 +1101,32 @@ p.cursor::after {
     color: var(--color-white);
 }
 
+.experties-section-mobile-slider{
+    display: none;
+}
 #headerEffectCanvas {
     width: 100%;
     height: 100%;
   }
 
 @media only screen and (max-width: 1000px){
+    .experties-section-mobile-slider{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 45%;
+        background: none;
+        z-index: 100;
+    }
     .experties-main-title{
         top: 0;
         left: 0;
-        font-size: 120px;
+        font-size: calc(100vw / 4);
         overflow-x: hidden;
         width: 100%
     }
     .experties-main-subtitle{
-        top: 125px;
+        top: calc(100vw / 4 - 10px) ;
         left: auto;
         right: 20px;
         /* color: var(--color-white); */
@@ -1528,7 +1557,7 @@ p.cursor::after {
         height: fit-content;
     }
     .value-section-static-bg-img{
-        top: 0rem;
+        top: -10rem;
         left: 50%;
         margin-left: -140px;
         width: 100%;
@@ -1547,6 +1576,7 @@ p.cursor::after {
 
     #value-section-static-img-1{
         right: auto;
+        top: -9rem;
     }
     
     #values-yinyang-img{
@@ -1579,13 +1609,17 @@ p.cursor::after {
     .values-single-value-text-container{
         width: 100%;
     }
+    .values-single-value-text-container p{
+        margin-top: 16px;
+    }
     .values-yinyang-container {
         margin-top: -25rem;
-        padding-top: 5rem;
+        padding-top: 3rem;
     }
 
     .values-commitment-container{
-        padding-top: 5rem;
+        padding-top: 3rem;
+        padding-bottom: 12rem;
         margin-top: 20rem;
         margin-bottom: -4rem;
     }

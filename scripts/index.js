@@ -9,38 +9,121 @@ gsap.registerPlugin(Draggable);
 
 
 const form = document.getElementById('contactus-form');
+
+let contactFullname = document.getElementById('contact-fullname')
+let contactEmail = document.getElementById('contact-email')
+let contactInquiry = document.getElementById('contact-inquiry')
+
+contactFullname.addEventListener('blur', validateFullname)
+contactEmail.addEventListener('blur', validateEmail)
+contactInquiry.addEventListener('blur', validateInquiry)
+
+console.log(contactFullname)
+
+function validateFullname() {
+    console.log('in full name')
+    let contactFullnameError = true
+    let errorContainer = document.getElementById('fullname-error-container')
+    if(contactFullname.value === '' || contactFullname.value === undefined ){
+        contactFullnameError = true
+        contactFullname.style.border = '2px solid #F17D7DB2'
+        errorContainer.style.display = 'flex'
+    }
+    else{
+        contactFullnameError = false
+        contactFullname.style.border = '2px solid #FFFFFFB2'
+        errorContainer.style.display = 'none'
+    }
+
+    return !contactFullnameError
+} 
+
+function validateEmail() {
+    let contactEmailError = true
+    let errorContainer = document.getElementById('email-error-container')
+    if(contactEmail.value === '' || contactEmail.value === undefined || !contactEmail.value.match(/^\S+@\S+\.\S+$/)){
+        contactEmailError = true
+        contactEmail.style.border = '2px solid #F17D7DB2'
+        errorContainer.style.display = 'flex'
+    }
+    else{
+        contactEmailError = false
+        contactEmail.style.border = '2px solid #FFFFFFB2'
+        errorContainer.style.display = 'none'
+    }
+
+    return !contactEmailError
+} 
+
+function validateInquiry() {
+    let contactInquiryError = true
+    let errorContainer = document.getElementById('inquiry-error-container')
+    if(contactInquiry.value === '' || contactInquiry.value === undefined ){
+        contactInquiryError = true
+        contactInquiry.style.border = '2px solid #F17D7DB2'
+        errorContainer.style.display = 'flex'
+    }
+    else{
+        contactInquiryError = false
+        contactInquiry.style.border = '2px solid #FFFFFFB2'
+        errorContainer.style.display = 'none'
+    }
+
+    return !contactInquiryError
+} 
+
+function validateForm() {
+
+    let validateFullnameVal = validateFullname() 
+    let validateEmailVal = validateEmail() 
+    let validateInquiryVal = validateInquiry() 
+    if(validateFullnameVal && validateEmailVal && validateInquiryVal ){
+        return true
+    }
+
+    else{
+        return false
+    }
+}
+
 form.addEventListener('submit', (event) => {
 
     event.preventDefault()
-    let sendBtn = document.querySelector('.contactus-submit-btn')
-    const formData = new FormData(form);
 
-    const value = Object.fromEntries(formData.entries())
-    console.log(value)
 
-    sendBtn.textContent = 'Sending...'
-    sendBtn.style.background = 'none'
-    sendBtn.style.border = '3px solid var(--color-white)'
-    sendBtn.style.color = 'white'
-
-    fetch("https://formsubmit.co/ajax/madhav1panchhiwala@gmail.com", {
-        method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(value)
+    if(validateForm()){
         
-    })
-    .then(response => response.json())
-    .then(data =>{
-        console.log(data)
-        // confirmation.textContent = "we will reach out soon";
-        confirmation.style.display = 'flex';
-        form.style.display = 'none'
-    } 
-    )
-    .catch(error => console.log(error));
+        let sendBtn = document.querySelector('.contactus-submit-btn')
+        const formData = new FormData(form);
+    
+        const value = Object.fromEntries(formData.entries())
+        console.log(value)
+    
+        sendBtn.textContent = 'Sending...'
+        sendBtn.style.background = 'none'
+        sendBtn.style.border = '3px solid var(--color-white)'
+        sendBtn.style.color = 'white'
+    
+        fetch("https://formsubmit.co/ajax/madhav1panchhiwala@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(value)
+            
+        })
+        .then(response => response.json())
+        .then(data =>{
+            console.log(data)
+            // confirmation.textContent = "we will reach out soon";
+            confirmation.style.display = 'flex';
+            form.style.display = 'none'
+        } 
+        )
+        .catch(error => console.log(error));
+    }
+
 
     return false
 })
@@ -1005,6 +1088,13 @@ gsap.to('#value-section-static-img-2',.5,{
 
 // -------------------------------------------------Values section hover bounce animation ------------------------------------------------- 
 
+
+let ySwing = '80px'
+
+if(window.innerWidth < 1000){
+
+    ySwing = '50px'
+}
 
 let yinayngShadowAnim = gsap.to('#values-yinyang-shadow-img', 3,
     {

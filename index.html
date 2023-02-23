@@ -64,23 +64,66 @@
                 <form id="contactus-form" method="POST" class="contactus-form-container">
                     <div class="contactus-form-row">
                         <label for="fullname">Full name <span>*</span></label>
-                        <input name="fullname" type="text" required/>
+                        <input id="contact-fullname" name="fullname" type="text"/>
+                        <div id="fullname-error-container" class="contact-single-error-container">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.5" clip-path="url(#clip0_1313_51)">
+                                <path d="M9.1665 12.5003H10.8332V14.167H9.1665V12.5003ZM9.1665 5.83366H10.8332V10.8337H9.1665V5.83366ZM9.9915 1.66699C5.3915 1.66699 1.6665 5.40033 1.6665 10.0003C1.6665 14.6003 5.3915 18.3337 9.9915 18.3337C14.5998 18.3337 18.3332 14.6003 18.3332 10.0003C18.3332 5.40033 14.5998 1.66699 9.9915 1.66699ZM9.99984 16.667C6.3165 16.667 3.33317 13.6837 3.33317 10.0003C3.33317 6.31699 6.3165 3.33366 9.99984 3.33366C13.6832 3.33366 16.6665 6.31699 16.6665 10.0003C16.6665 13.6837 13.6832 16.667 9.99984 16.667Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1313_51">
+                                <rect width="20" height="20" fill="white"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                                
+                            <p>Please enter your name.</p>                            
+                        </div>
                     </div>
                     <div class="contactus-form-row">
-                        <label for="emailadd">Email address <span>*</span></label>
-                        <input name='emailadd' type="email" required/>
+                        <label  for="emailadd">Email address <span>*</span></label>
+                        <input id="contact-email" name='emailadd' type="email" />
+                        <div id="email-error-container" class="contact-single-error-container">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.5" clip-path="url(#clip0_1313_51)">
+                                <path d="M9.1665 12.5003H10.8332V14.167H9.1665V12.5003ZM9.1665 5.83366H10.8332V10.8337H9.1665V5.83366ZM9.9915 1.66699C5.3915 1.66699 1.6665 5.40033 1.6665 10.0003C1.6665 14.6003 5.3915 18.3337 9.9915 18.3337C14.5998 18.3337 18.3332 14.6003 18.3332 10.0003C18.3332 5.40033 14.5998 1.66699 9.9915 1.66699ZM9.99984 16.667C6.3165 16.667 3.33317 13.6837 3.33317 10.0003C3.33317 6.31699 6.3165 3.33366 9.99984 3.33366C13.6832 3.33366 16.6665 6.31699 16.6665 10.0003C16.6665 13.6837 13.6832 16.667 9.99984 16.667Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1313_51">
+                                <rect width="20" height="20" fill="white"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                                
+                            <p>Please enter a valid email address.</p>                            
+                        </div>
                     </div>
                     <div class="contactus-form-row contactus-form-select">
                         <svg id="select-dropdown" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.83335 7.83366L1.50002 3.50033C0.972242 2.97255 0.854465 2.36866 1.14669 1.68866C1.4378 1.00755 1.95835 0.666992 2.70835 0.666992H11.2917C12.0417 0.666992 12.5622 1.00755 12.8534 1.68866C13.1456 2.36866 13.0278 2.97255 12.5 3.50033L8.16669 7.83366C8.00002 8.00033 7.81946 8.12532 7.62502 8.20866C7.43058 8.29199 7.22224 8.33366 7.00002 8.33366C6.7778 8.33366 6.56946 8.29199 6.37502 8.20866C6.18058 8.12532 6.00002 8.00033 5.83335 7.83366Z" fill="white"/>
                         </svg>                            
                         <label for="inquiry">Inquiry type <span>*</span></label>
-                        <select name="inquiry" id="inquiryType" required>
+                        <select id="contact-inquiry" name="inquiry" id="inquiryType">
+                            <option value="" selected disabled hidden></option>
                             <option value="design">Design</option>
                             <option value="development">Development</option>
                             <option value="consultation">Consultation</option>
                             <option value="maintainence">Maintainence</option>
                         </select>
+                        <div id="inquiry-error-container" class="contact-single-error-container">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.5" clip-path="url(#clip0_1313_51)">
+                                <path d="M9.1665 12.5003H10.8332V14.167H9.1665V12.5003ZM9.1665 5.83366H10.8332V10.8337H9.1665V5.83366ZM9.9915 1.66699C5.3915 1.66699 1.6665 5.40033 1.6665 10.0003C1.6665 14.6003 5.3915 18.3337 9.9915 18.3337C14.5998 18.3337 18.3332 14.6003 18.3332 10.0003C18.3332 5.40033 14.5998 1.66699 9.9915 1.66699ZM9.99984 16.667C6.3165 16.667 3.33317 13.6837 3.33317 10.0003C3.33317 6.31699 6.3165 3.33366 9.99984 3.33366C13.6832 3.33366 16.6665 6.31699 16.6665 10.0003C16.6665 13.6837 13.6832 16.667 9.99984 16.667Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1313_51">
+                                <rect width="20" height="20" fill="white"/>
+                                </clipPath>
+                                </defs>
+                                </svg>
+                                
+                            <p>Please select an inquiry type.</p>                            
+                        </div>
                     </div>
                     <div class="contactus-form-row">
                         <label for="message">Message</label>
@@ -93,8 +136,8 @@
                     </div>
                 </form>
                 <div id="confirmation">
-                    <h1 class="title-typo">
-                        Thank you for connecting with us we will reach out soon
+                    <h1 class="hero-section-subtitle">
+                        We have received your query, and we are eager to talk to you and learn more about your product. Yet, we need 24-48 hours to get back to you.
                     </h1>
                         
                 </div>
@@ -314,6 +357,7 @@
     <section id="experties-section">
         <h1 class="experties-main-title">Domain</h1>
         <h3 class="experties-main-subtitle title-typo">Expertise</h3>
+        <div class="experties-section-mobile-slider"></div>
         <div id="headerEffectCanvas"></div> 
     </section>
 
