@@ -94,6 +94,7 @@ form.addEventListener('submit', (event) => {
     if(validateForm()){
         
         let sendBtn = document.querySelector('.contactus-submit-btn')
+        let contactusRightPara = document.querySelector('.contactus-right-para')
         const formData = new FormData(form);
     
         const value = Object.fromEntries(formData.entries())
@@ -118,6 +119,7 @@ form.addEventListener('submit', (event) => {
             console.log(data)
             // confirmation.textContent = "we will reach out soon";
             confirmation.style.display = 'flex';
+            contactusRightPara.innerText = 'Great user experience is up!'
             form.style.display = 'none'
         } 
         )

@@ -436,6 +436,7 @@ option{
 
     .contactus-form-container textarea{
         height: auto;
+        padding: 10px 14px;
     }
 
     .contactus-form-img-right-container{
@@ -1576,7 +1577,8 @@ p.cursor::after {
 
     #value-section-static-img-1{
         right: auto;
-        top: -9rem;
+        top: -6rem;
+        margin-left: -100px;
     }
     
     #values-yinyang-img{
@@ -1598,6 +1600,9 @@ p.cursor::after {
         object-fit: contain;
         scale: 1;
         opacity: 1;
+    }
+    .values-yinyang-img-container{
+        width: 200px;
     }
     .values-commitment-img-container{
         width: 320px;
@@ -1849,7 +1854,7 @@ p.cursor::after {
     }
     .designprocess-section-content-container{
         padding: 0px 20px;
-        min-height: 993px;
+        min-height: 693px;
         display: block;
     }
     .designprocess-section-title-container h1{
@@ -1878,6 +1883,25 @@ p.cursor::after {
         bottom: 0rem;
         left: 50%;
         transform: translateX(-50%);
+    }
+    #designprocess-img{
+        width: 220px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .designprocess-section-content-container{
+        min-height: 793px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .designprocess-section-content-container{
+        min-height: 893px;
+    }
+}
+@media only screen and (max-width: 360px){
+    .designprocess-section-content-container{
+        min-height: 953px;
     }
 }
 /*-------------------------------------------- blogs-Section --------------------------------------------*/
