@@ -1346,27 +1346,27 @@ gsap.to('body',.5,{
 // let loader = document.getElementById('loader')
 
 // const loaderCols = element.querySelectorAll('.loader-col')
-// window.addEventListener('load', setTimeout(function(){
+window.addEventListener('load', setTimeout(function(){
 
-//     var loaderTimeline = gsap.timeline()
+    var loaderTimeline = gsap.timeline()
     
 
 
-//     loaderTimeline.to('.loader-overlaytext',1,{
-//         opacity : 0,
-//         stagger : 0.1,
-//         ease : 'power1.out',
-//     },'>1')
+    loaderTimeline.to('.loader-overlaytext',1,{
+        opacity : 0,
+        stagger : 0.1,
+        ease : 'power1.out',
+    },'>1')
 
-//     loaderTimeline.to(' .loader-col',1,{
-//         clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-//         stagger : 0.1,
-//         ease : 'power1.out',
-//     },'<0.75')
+    loaderTimeline.to(' .loader-col',1,{
+        clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+        stagger : 0.1,
+        ease : 'power1.out',
+    },'<0.75')
     
-//     loaderTimeline.to('#loader',0.1,{
-//         display : 'none'
-//     },'>0.01')
+    loaderTimeline.to('#loader',0.1,{
+        display : 'none'
+    },'>0.01')
     
-//     // loader.style.display = 'none'
-// },1))
+    // loader.style.display = 'none'
+},1))
