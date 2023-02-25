@@ -8,6 +8,8 @@ gsap.registerPlugin(Draggable);
 
 
 
+// -------------------------------------------------contact us form validation ------------------------------------------------- 
+
 const form = document.getElementById('contactus-form');
 
 let contactFullname = document.getElementById('contact-fullname')
@@ -17,6 +19,10 @@ let contactInquiry = document.getElementById('contact-inquiry')
 contactFullname.addEventListener('blur', validateFullname)
 contactEmail.addEventListener('blur', validateEmail)
 contactInquiry.addEventListener('blur', validateInquiry)
+
+contactFullname.addEventListener('focus', () => contactFullname.style.border = '2px solid var(--color-prim')
+contactEmail.addEventListener('focus', () => contactEmail.style.border = '2px solid var(--color-prim')
+contactInquiry.addEventListener('focus', () => contactInquiry.style.border = '2px solid var(--color-prim')
 
 console.log(contactFullname)
 
@@ -86,6 +92,8 @@ function validateForm() {
     }
 }
 
+
+// -------------------------------------------------contact us form submit ------------------------------------------------- 
 form.addEventListener('submit', (event) => {
 
     event.preventDefault()
@@ -360,6 +368,32 @@ function handleCloseMenu(){
         ease : 'power1.inOut',
         clipPath : 'circle(0% at 100% 0)',
     },'<0.1')
+
+
+    setTimeout(()=>{
+        let contactusRightPara = document.querySelector('.contactus-right-para')
+        confirmation.style.display = 'none';
+        contactusRightPara.innerText = `Or just say, Whaaaat's up!`
+        form.style.display = 'flex'
+
+        let sendBtn = document.querySelector('.contactus-submit-btn')
+        sendBtn.textContent = 'Send'
+        sendBtn.style.background = 'var(--color-prim)'
+        sendBtn.style.border = '3px solid var(--color-prim)'
+        sendBtn.style.color = 'black'
+
+        sendBtn.addEventListener('mouseenter', () =>{
+            sendBtn.style.background = 'none';
+            sendBtn.style.color = 'white';
+            sendBtn.style.border = '3px solid var(--color-white)'
+        } )
+        sendBtn.addEventListener('mouseleave', () =>{
+            sendBtn.style.background = 'var(--color-prim)'
+            sendBtn.style.border = '3px solid var(--color-prim)'
+            sendBtn.style.color = 'black'
+        } )
+    },2000)
+
     
 }
 // -------------------------------------------------Hero section typewriter ------------------------------------------------- 
@@ -904,7 +938,7 @@ reviews.forEach((review)=>{
             <p class="para-typo slide-para">
                 ${review.clientReview}
             </p>
-            <div>
+            <div class='review-section-slide-bottom-container'>
                 <h3 class="para-typo slide-client">${review.clientName}</h3>
                 <h4 class="slide-client-designation">${review.clientDesignation}</h4>
             </div>
@@ -1312,27 +1346,27 @@ gsap.to('body',.5,{
 // let loader = document.getElementById('loader')
 
 // const loaderCols = element.querySelectorAll('.loader-col')
-window.addEventListener('load', setTimeout(function(){
+// window.addEventListener('load', setTimeout(function(){
 
-    var loaderTimeline = gsap.timeline()
+//     var loaderTimeline = gsap.timeline()
     
 
 
-    loaderTimeline.to('.loader-overlaytext',1,{
-        opacity : 0,
-        stagger : 0.1,
-        ease : 'power1.out',
-    },'>1')
+//     loaderTimeline.to('.loader-overlaytext',1,{
+//         opacity : 0,
+//         stagger : 0.1,
+//         ease : 'power1.out',
+//     },'>1')
 
-    loaderTimeline.to(' .loader-col',1,{
-        clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
-        stagger : 0.1,
-        ease : 'power1.out',
-    },'<0.75')
+//     loaderTimeline.to(' .loader-col',1,{
+//         clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+//         stagger : 0.1,
+//         ease : 'power1.out',
+//     },'<0.75')
     
-    loaderTimeline.to('#loader',0.1,{
-        display : 'none'
-    },'>0.01')
+//     loaderTimeline.to('#loader',0.1,{
+//         display : 'none'
+//     },'>0.01')
     
-    // loader.style.display = 'none'
-},1))
+//     // loader.style.display = 'none'
+// },1))
